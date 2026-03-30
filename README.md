@@ -17,24 +17,25 @@
             overflow-x: hidden;
         }
 
-        /* ЧЕРНЫЙ ЗАНАВЕС (ДЛЯ IPHONE) */
+        /* ЧЕРНЫЙ ЗАНАВЕС ДЛЯ АКТИВАЦИИ НА IPHONE */
         #loader-curtain {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100%;
             background-color: #000;
             z-index: 1000;
             display: flex; align-items: center; justify-content: center;
-            transition: opacity 1.5s ease;
+            transition: opacity 1.2s ease;
             cursor: pointer;
         }
         #loader-curtain::after {
             content: 'Нажмите, чтобы открыть';
             color: white; font-family: 'Cinzel', serif;
-            letter-spacing: 2px; font-size: 0.8em; opacity: 0.6;
+            letter-spacing: 3px; font-size: 0.9em; opacity: 0.7;
         }
 
         .main-wrapper { display: flex; flex-direction: column; width: 100%; }
 
+        /* ВИДЕО СЕКЦИЯ */
         .video-section {
             width: 100%; height: 100vh;
             background: #000;
@@ -43,12 +44,14 @@
         }
         video { width: 100%; height: 100%; object-fit: cover; display: block; }
 
+        /* КОНТЕНТ */
         .content-section { position: relative; z-index: 10; width: 100%; }
 
         .hero-photo {
             height: 100vh; width: 100%;
+            /* ИСПОЛЬЗУЕМ ВНУТРЕННЮЮ ССЫЛКУ */
             background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4)), 
-                              url('https://raw.githubusercontent.com/noikhman/wedding/main/%E2%84%96999_159.JPG');
+                              url('main_photo.jpg');
             background-size: cover; background-position: center;
             display: flex; align-items: flex-end; justify-content: center;
             padding-bottom: 12vh;
@@ -83,6 +86,7 @@
             font-size: 0.85em; letter-spacing: 2px;
         }
 
+        /* ДЕСКТОП ВЕРСИЯ */
         @media (min-width: 1025px) {
             .main-wrapper { flex-direction: row; }
             .video-section { position: sticky; width: 40%; height: 100vh; flex-shrink: 0; }
@@ -99,13 +103,13 @@
     <div id="loader-curtain" onclick="startAll()"></div>
 
     <audio id="music" loop preload="auto">
-        <source src="https://raw.githubusercontent.com/noikhman/wedding/main/Stephen%20Sanchez%20-%20Until%20I%20Found%20You%20(Piano%20Karaoke).mp3" type="audio/mpeg">
+        <source src="wedding_music.mp3" type="audio/mpeg">
     </audio>
 
     <div class="main-wrapper">
         <div class="video-section">
             <video id="video" playsinline webkit-playsinline muted loop preload="auto">
-                <source src="https://raw.githubusercontent.com/noikhman/wedding/main/video5350360388351334576.mp4" type="video/mp4">
+                <source src="wedding_video.mp4" type="video/mp4">
             </video>
         </div>
 
@@ -117,7 +121,9 @@
             <section class="info-card-wrap">
                 <div class="card">
                     <p style="text-transform: uppercase; letter-spacing: 4px; font-size: 0.8em; margin-bottom: 25px; color: var(--main); font-weight: bold;">Save the Date</p>
-                    <p style="font-style: italic; line-height: 1.8; font-size: 1.2em; color: #000;">Дорогие и любимые!<br>Один из дней лета станет самым важным в нашей жизни.<br>И мы хотим провести его вместе с вами.</p>
+                    <p style="font-style: italic; line-height: 1.8; font-size: 1.2em; color: #000;">
+                        Дорогие и любимые!<br>Один из дней лета станет самым важным в нашей жизни.<br>И мы хотим провести его вместе с вами.
+                    </p>
                     <div class="date-box">
                         <p style="font-family: 'Cinzel', serif; font-size: 2em; letter-spacing: 4px;">26 . 07 . 2026</p>
                         <p style="text-transform: uppercase; font-size: 0.9em; margin-top: 5px;">Воскресенье • 16:30</p>
@@ -126,7 +132,7 @@
                         <p style="font-size: 1.2em; font-weight: bold; color: #000;">Ресторан «Престиж»</p>
                         <p style="color: #000; margin-top: 5px; font-weight: 500;">г. Слободзея, ул. Фрунзе, 12</p>
                     </div>
-                    <a href="https://maps.app.goo.gl/dsVRbwvtxUHcUdaE7" target="_blank" class="btn">Открыть карту</a>
+                    <a href="https://maps.google.com/?q=Слободзея+Фрунзе+12" target="_blank" class="btn">Открыть карту</a>
                 </div>
             </section>
         </div>
@@ -145,12 +151,12 @@
             if (video) video.play();
             if (audio && audio.paused) {
                 audio.volume = 0.5;
-                audio.play();
+                audio.play().catch(e => console.log("Safari блокирует звук без клика"));
             }
         }
 
-        // Запасные триггеры для Safari
-        ['touchstart', 'click', 'scroll'].forEach(evt => {
+        // Слушаем взаимодействие
+        ['touchstart', 'mousedown', 'scroll'].forEach(evt => {
             window.addEventListener(evt, startAll, {once: true});
         });
 
