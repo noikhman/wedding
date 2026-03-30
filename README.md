@@ -17,7 +17,6 @@
             overflow-x: hidden;
         }
 
-        /* ЧЕРНЫЙ ЗАНАВЕС (ДЛЯ IPHONE) */
         #loader-curtain {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100%;
@@ -47,8 +46,9 @@
 
         .hero-photo {
             height: 100vh; width: 100%;
+            /* ИСПОЛЬЗУЕМ ВАШЕ НАЗВАНИЕ ФОТО С СИМВОЛОМ № */
             background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4)), 
-                              url('https://raw.githubusercontent.com/noikhman/wedding/main/%E2%84%96999_159.JPG');
+                              url('%E2%84%96999_159.JPG');
             background-size: cover; background-position: center;
             display: flex; align-items: flex-end; justify-content: center;
             padding-bottom: 12vh;
@@ -99,13 +99,13 @@
     <div id="loader-curtain" onclick="startAll()"></div>
 
     <audio id="music" loop preload="auto">
-        <source src="https://raw.githubusercontent.com/noikhman/wedding/main/Stephen%20Sanchez%20-%20Until%20I%20Found%20You%20(Piano%20Karaoke).mp3" type="audio/mpeg">
+        <source src="Stephen%20Sanchez%20-%20Until%20I%20Found%20You%20(Piano%20Karaoke).mp3" type="audio/mpeg">
     </audio>
 
     <div class="main-wrapper">
         <div class="video-section">
             <video id="video" playsinline webkit-playsinline muted loop preload="auto">
-                <source src="https://raw.githubusercontent.com/noikhman/wedding/main/video5350360388351334576.mp4" type="video/mp4">
+                <source src="video5350360388351334576.mp4" type="video/mp4">
             </video>
         </div>
 
@@ -126,7 +126,7 @@
                         <p style="font-size: 1.2em; font-weight: bold; color: #000;">Ресторан «Престиж»</p>
                         <p style="color: #000; margin-top: 5px; font-weight: 500;">г. Слободзея, ул. Фрунзе, 12</p>
                     </div>
-                    <a href="https://maps.app.goo.gl/dsVRbwvtxUHcUdaE7" target="_blank" class="btn">Открыть карту</a>
+                    <a href="https://maps.google.com/?q=Слободзея+Фрунзе+12" target="_blank" class="btn">Открыть карту</a>
                 </div>
             </section>
         </div>
@@ -149,7 +149,7 @@
             }
         }
 
-        // Запасные триггеры для Safari
+        // Поддержка касаний для мобильных
         ['touchstart', 'click', 'scroll'].forEach(evt => {
             window.addEventListener(evt, startAll, {once: true});
         });
