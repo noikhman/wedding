@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Данил & Ирина</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Lora:ital@0;1&display=swap" rel="stylesheet">
+    <title>Приглашение: Данил и Ирина</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
     <style>
         :root { --main: #3b352d; }
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -17,7 +21,7 @@
             overflow-x: hidden;
         }
 
-        /* ЗАТЕМНЕНИЕ ВНАЧАЛЕ ДЛЯ IPHONE */
+        /* ЧЕРНАЯ ЗАВЕСА */
         #loader-curtain {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100%;
@@ -28,14 +32,13 @@
             cursor: pointer;
         }
         #loader-curtain::after {
-            content: 'НАЖМИТЕ, ЧТОБЫ ОТКРЫТЬ';
+            content: 'ОТКРЫТЬ ПРИГЛАШЕНИЕ';
             color: white; font-family: 'Cinzel', serif;
-            letter-spacing: 3px; font-size: 0.8em; opacity: 0.6;
+            letter-spacing: 3px; font-size: 0.8em; opacity: 0.7;
         }
 
         .main-wrapper { display: flex; flex-direction: column; width: 100%; }
 
-        /* ВИДЕО */
         .video-section {
             width: 100%; height: 100vh;
             background: #000;
@@ -44,37 +47,37 @@
         }
         video { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        /* КОНТЕНТ */
         .content-section { position: relative; z-index: 10; width: 100%; }
 
         .hero-photo {
             height: 100vh; width: 100%;
+            /* ПРЯМАЯ ССЫЛКА НА ФОТО */
             background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4)), 
-                              url('main_photo.jpg');
+                              url('https://noikhman.github.io/wedding/main_photo.jpg');
             background-size: cover; background-position: center;
             display: flex; align-items: flex-end; justify-content: center;
             padding-bottom: 12vh;
         }
         .hero-photo h1 { 
             font-family: 'Cinzel', serif; color: #fff; 
-            font-size: 2.2em; letter-spacing: 3px; 
-            text-shadow: 0 2px 15px rgba(0,0,0,0.6);
+            font-size: 2.5em; letter-spacing: 4px; 
+            text-shadow: 0 2px 15px rgba(0,0,0,0.7);
             text-align: center;
         }
 
-        .scroll-gap { height: 80vh; background: transparent; }
+        .scroll-gap { height: 85vh; background: transparent; }
 
         .info-card-wrap {
             padding: 40px 20px 120px;
             display: flex; justify-content: center;
         }
         .card {
-            background: rgba(255, 255, 252, 0.45);
-            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            background: rgba(255, 255, 252, 0.5);
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
             padding: 60px 30px; border-radius: 40px;
             text-align: center; width: 100%; max-width: 450px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.25);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.3);
         }
         .date-box { background: var(--main); color: #fff; margin: 35px -30px; padding: 30px 10px; }
         .btn {
@@ -82,18 +85,17 @@
             padding: 16px 45px; background: var(--main);
             color: #fff; text-decoration: none;
             border-radius: 50px; text-transform: uppercase;
-            font-size: 0.85em; letter-spacing: 2px;
+            font-size: 0.85em; letter-spacing: 2px; font-family: 'Cinzel', serif;
         }
 
-        /* АДАПТАЦИЯ ПК */
         @media (min-width: 1025px) {
             .main-wrapper { flex-direction: row; }
             .video-section { position: sticky; width: 40%; height: 100vh; flex-shrink: 0; }
-            .content-section { width: 60%; background: #fdfdfb; }
+            .content-section { width: 60%; z-index: 10; background: #fdfdfb; }
             .hero-photo { height: 100vh; padding-bottom: 8vh; }
             .scroll-gap { display: none; }
             .info-card-wrap { background: #fdfdfb; padding: 100px 40px; }
-            .card { background: #fff; backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: none; border: none; max-width: 500px; }
+            .card { background: #fff; backdrop-filter: none; box-shadow: none; border: none; max-width: 500px; }
         }
     </style>
 </head>
@@ -102,13 +104,13 @@
     <div id="loader-curtain" onclick="startAll()"></div>
 
     <audio id="music" loop preload="auto">
-        <source src="wedding_music.mp3" type="audio/mpeg">
+        <source src="https://noikhman.github.io/wedding/wedding_music.mp3" type="audio/mpeg">
     </audio>
 
     <div class="main-wrapper">
         <div class="video-section">
             <video id="video" playsinline webkit-playsinline muted loop preload="auto">
-                <source src="wedding_video.mp4" type="video/mp4">
+                <source src="https://noikhman.github.io/wedding/wedding_video.mp4" type="video/mp4">
             </video>
         </div>
 
@@ -120,15 +122,15 @@
             <section class="info-card-wrap">
                 <div class="card">
                     <p style="text-transform: uppercase; letter-spacing: 4px; font-size: 0.8em; margin-bottom: 25px; color: var(--main); font-weight: bold;">Save the Date</p>
-                    <p style="font-style: italic; line-height: 1.8; font-size: 1.2em; color: #000;">
+                    <p style="font-style: italic; line-height: 1.8; font-size: 1.3em; color: #000;">
                         Дорогие и любимые!<br>Один из дней лета станет самым важным в нашей жизни.<br>И мы хотим провести его вместе с вами.
                     </p>
                     <div class="date-box">
-                        <p style="font-family: 'Cinzel', serif; font-size: 2em; letter-spacing: 4px;">26 . 07 . 2026</p>
+                        <p style="font-family: 'Cinzel', serif; font-size: 2.2em; letter-spacing: 4px;">26 . 07 . 2026</p>
                         <p style="text-transform: uppercase; font-size: 0.9em; margin-top: 5px;">Воскресенье • 16:30</p>
                     </div>
                     <div style="margin: 40px 0;">
-                        <p style="font-size: 1.2em; font-weight: bold; color: #000;">Ресторан «Престиж»</p>
+                        <p style="font-size: 1.3em; font-weight: bold; color: #000;">Ресторан «Престиж»</p>
                         <p style="color: #000; margin-top: 5px; font-weight: 500;">г. Слободзея, ул. Фрунзе, 12</p>
                     </div>
                     <a href="https://maps.google.com/?q=Слободзея,Фрунзе,12" target="_blank" class="btn">Открыть карту</a>
@@ -154,12 +156,10 @@
             }
         }
 
-        // Слушаем взаимодействие для iPhone
         ['touchstart', 'click', 'scroll'].forEach(evt => {
             window.addEventListener(evt, startAll, {once: true});
         });
 
-        // Пауза при сворачивании
         document.addEventListener('visibilitychange', () => {
             if (document.hidden) { audio.pause(); video.pause(); }
             else { if (audio.currentTime > 0) audio.play(); video.play(); }
