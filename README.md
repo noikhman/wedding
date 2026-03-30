@@ -51,7 +51,7 @@
             width: 100%; height: 100vh;
             z-index: 100; /* Выше видео */
             background-image: linear-gradient(to bottom, rgba(0,0,0,0) 70%, rgba(0,0,0,0.5) 100%), 
-                              url('https://raw.githubusercontent.com/noikhman/wedding/main/%E2%84%96999_159.JPG');
+                              url('https://raw.githubusercontent.com/noikhman/wedding/main/photo.jpg');
             background-size: cover; background-position: center;
             display: flex; align-items: flex-end; justify-content: center;
             padding-bottom: 15vh;
