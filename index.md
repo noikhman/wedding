@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Приглашение: Данил и Ирина</title>
+    <title>Данил & Ирина</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +21,7 @@
             overflow-x: hidden;
         }
 
-        /* ЧЕРНАЯ ЗАВЕСА */
+        /* Кнопка активации для iPhone */
         #loader-curtain {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100%;
@@ -33,7 +34,9 @@
         #loader-curtain::after {
             content: 'ОТКРЫТЬ ПРИГЛАШЕНИЕ';
             color: white; font-family: 'Cinzel', serif;
-            letter-spacing: 3px; font-size: 0.8em; opacity: 0.7;
+            letter-spacing: 3px; font-size: 0.9em; opacity: 0.8;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 15px 25px;
         }
 
         .main-wrapper { display: flex; flex-direction: column; width: 100%; }
@@ -50,9 +53,9 @@
 
         .hero-photo {
             height: 100vh; width: 100%;
-            /* ПРЯМАЯ ССЫЛКА НА ФОТО */
+            /* ВНИМАНИЕ: Здесь расширение .JPG заглавными буквами, как у вас в файлах */
             background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4)), 
-                              url('https://noikhman.github.io/wedding/main_photo.jpg');
+                              url('main_photo.JPG');
             background-size: cover; background-position: center;
             display: flex; align-items: flex-end; justify-content: center;
             padding-bottom: 12vh;
@@ -103,13 +106,13 @@
     <div id="loader-curtain" onclick="startAll()"></div>
 
     <audio id="music" loop preload="auto">
-        <source src="https://noikhman.github.io/wedding/wedding_music.mp3" type="audio/mpeg">
+        <source src="wedding_music.MP3" type="audio/mpeg">
     </audio>
 
     <div class="main-wrapper">
         <div class="video-section">
             <video id="video" playsinline webkit-playsinline muted loop preload="auto">
-                <source src="https://noikhman.github.io/wedding/wedding_video.mp4" type="video/mp4">
+                <source src="wedding_video.MP4" type="video/mp4">
             </video>
         </div>
 
@@ -132,7 +135,7 @@
                         <p style="font-size: 1.3em; font-weight: bold; color: #000;">Ресторан «Престиж»</p>
                         <p style="color: #000; margin-top: 5px; font-weight: 500;">г. Слободзея, ул. Фрунзе, 12</p>
                     </div>
-                    <a href="https://maps.google.com/?q=Слободзея,Фрунзе,12" target="_blank" class="btn">Открыть карту</a>
+                    <a href="https://maps.app.goo.gl/3" target="_blank" class="btn">Открыть карту</a>
                 </div>
             </section>
         </div>
@@ -155,6 +158,7 @@
             }
         }
 
+        // Слушаем любое касание экрана
         ['touchstart', 'click', 'scroll'].forEach(evt => {
             window.addEventListener(evt, startAll, {once: true});
         });
