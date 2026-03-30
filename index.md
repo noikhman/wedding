@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Приглашение: Данил и Ирина</title>
+    <title>Данил & Ирина</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Lora:ital@0;1&display=swap" rel="stylesheet">
     <style>
         :root { --main: #3b352d; }
@@ -16,25 +17,25 @@
             overflow-x: hidden;
         }
 
-        /* ЧЕРНЫЙ ЗАНАВЕС ДЛЯ АКТИВАЦИИ НА IPHONE */
+        /* ЗАТЕМНЕНИЕ ВНАЧАЛЕ ДЛЯ IPHONE */
         #loader-curtain {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100%;
             background-color: #000;
             z-index: 1000;
             display: flex; align-items: center; justify-content: center;
-            transition: opacity 1.2s ease;
+            transition: opacity 1.2s ease, visibility 1.2s;
             cursor: pointer;
         }
         #loader-curtain::after {
-            content: 'Нажмите, чтобы открыть';
+            content: 'НАЖМИТЕ, ЧТОБЫ ОТКРЫТЬ';
             color: white; font-family: 'Cinzel', serif;
-            letter-spacing: 3px; font-size: 0.9em; opacity: 0.7;
+            letter-spacing: 3px; font-size: 0.8em; opacity: 0.6;
         }
 
         .main-wrapper { display: flex; flex-direction: column; width: 100%; }
 
-        /* ВИДЕО СЕКЦИЯ */
+        /* ВИДЕО */
         .video-section {
             width: 100%; height: 100vh;
             background: #000;
@@ -48,7 +49,6 @@
 
         .hero-photo {
             height: 100vh; width: 100%;
-            /* ИСПОЛЬЗУЕМ ВНУТРЕННЮЮ ССЫЛКУ */
             background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4)), 
                               url('main_photo.jpg');
             background-size: cover; background-position: center;
@@ -85,7 +85,7 @@
             font-size: 0.85em; letter-spacing: 2px;
         }
 
-        /* ДЕСКТОП ВЕРСИЯ */
+        /* АДАПТАЦИЯ ПК */
         @media (min-width: 1025px) {
             .main-wrapper { flex-direction: row; }
             .video-section { position: sticky; width: 40%; height: 100vh; flex-shrink: 0; }
@@ -131,7 +131,7 @@
                         <p style="font-size: 1.2em; font-weight: bold; color: #000;">Ресторан «Престиж»</p>
                         <p style="color: #000; margin-top: 5px; font-weight: 500;">г. Слободзея, ул. Фрунзе, 12</p>
                     </div>
-                    <a href="https://maps.google.com/?q=Слободзея+Фрунзе+12" target="_blank" class="btn">Открыть карту</a>
+                    <a href="https://maps.google.com/?q=Слободзея,Фрунзе,12" target="_blank" class="btn">Открыть карту</a>
                 </div>
             </section>
         </div>
@@ -145,20 +145,21 @@
         function startAll() {
             if (curtain) {
                 curtain.style.opacity = '0';
-                setTimeout(() => { curtain.style.display = 'none'; }, 1500);
+                setTimeout(() => { curtain.style.visibility = 'hidden'; }, 1200);
             }
             if (video) video.play();
             if (audio && audio.paused) {
                 audio.volume = 0.5;
-                audio.play().catch(e => console.log("Safari блокирует звук без клика"));
+                audio.play();
             }
         }
 
-        // Слушаем взаимодействие
-        ['touchstart', 'mousedown', 'scroll'].forEach(evt => {
+        // Слушаем взаимодействие для iPhone
+        ['touchstart', 'click', 'scroll'].forEach(evt => {
             window.addEventListener(evt, startAll, {once: true});
         });
 
+        // Пауза при сворачивании
         document.addEventListener('visibilitychange', () => {
             if (document.hidden) { audio.pause(); video.pause(); }
             else { if (audio.currentTime > 0) audio.play(); video.play(); }
