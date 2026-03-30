@@ -7,114 +7,116 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500&family=Cinzel&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@200;300&family=Cinzel&display=swap" rel="stylesheet">
 
     <style>
-        :root { --main: #3b352d; }
+        :root { --main: #3b352d; --gold: #b89a67; }
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
         body, html { 
             width: 100%; height: 100%; 
             background-color: #000; 
-            font-family: 'Montserrat', sans-serif; 
+            font-family: 'Cormorant Garamond', serif; 
             overflow-x: hidden;
         }
 
-        /* Черная шторка для запуска на iPhone */
+        /* Черный экран активации */
         #loader-curtain {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-color: #000; z-index: 9999;
             display: flex; align-items: center; justify-content: center;
-            transition: opacity 1s ease; cursor: pointer;
+            transition: opacity 1.2s ease; cursor: pointer;
         }
         #loader-curtain::after {
-            content: 'ОТКРЫТЬ ПРИГЛАШЕНИЕ';
+            content: 'ОТКРЫТЬ';
             color: #fff; font-family: 'Cinzel', serif;
-            letter-spacing: 4px; font-size: 0.8em;
-            border: 1px solid rgba(255,255,255,0.3); padding: 15px 30px;
+            letter-spacing: 5px; font-size: 0.7em;
+            border: 1px solid rgba(255,255,255,0.2); padding: 12px 35px;
         }
 
-        /* Видео (нижний слой) */
+        /* СЛОЙ 1: ВИДЕО (ЗАФИКСИРОВАНО ВНИЗУ) */
         .video-bg {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100vh;
-            z-index: 1; background: #000;
+            z-index: 10; background: #000;
         }
         video { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Контейнер скролла */
-        .main-scroll {
+        /* СЛОЙ 2: ВЕСЬ СКРОЛЛ-КОНТЕНТ (ПОВЕРХ ВИДЕО) */
+        .page-content {
             position: relative;
-            z-index: 100;
+            z-index: 20; /* Выше видео */
             width: 100%;
         }
 
-        /* ФОТО СВЕРХУ (ПОЛНОЕ ПЕРЕКРЫТИЕ) */
-        .hero-photo {
+        /* ГЛАВНОЕ ФОТО (ПЕРЕКРЫВАЕТ ВСЁ) */
+        .hero-section {
             width: 100%; height: 100vh;
-            background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4)), 
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.6) 100%), 
                               url('https://raw.githubusercontent.com/noikhman/wedding/main/%E2%84%96999_159.JPG');
             background-size: cover; background-position: center;
-            display: flex; 
-            align-items: flex-end; /* Опускаем надпись вниз */
-            justify-content: center;
-            padding-bottom: 15vh; /* Расстояние имен от низа экрана */
-            position: relative;
-            z-index: 500; /* Гарантируем, что фото над видео */
-            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            display: flex; align-items: flex-end; justify-content: center;
+            padding-bottom: 10vh;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
 
-        .hero-photo h1 { 
-            font-family: 'Playfair Display', serif; 
-            color: #fff; font-size: clamp(2.4em, 8vw, 4em); 
-            font-weight: 400; letter-spacing: 2px; text-align: center;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+        .hero-section h1 { 
+            font-family: 'Cormorant Garamond', serif; 
+            color: #fff; font-size: clamp(2.5em, 10vw, 4.5em); 
+            font-weight: 300; letter-spacing: 2px; text-align: center;
+            text-shadow: 0 2px 15px rgba(0,0,0,0.5);
+            font-style: italic;
         }
 
-        /* Место для видео при скролле */
-        .video-gap { height: 85vh; background: transparent; }
+        /* Просвет для видео на мобильных */
+        .spacer { height: 85vh; background: transparent; }
 
-        /* ИНФОРМАЦИЯ (ПОЛУПРОЗРАЧНАЯ КАРТОЧКА) */
-        .info-section {
-            padding: 40px 20px 120px;
+        /* КАРТОЧКА (ПОЛУПРОЗРАЧНАЯ) */
+        .info-card-container {
+            padding: 40px 15px 150px;
             display: flex; justify-content: center;
-            position: relative; z-index: 600;
+            position: relative;
         }
 
         .glass-card {
-            background: rgba(255, 255, 252, 0.45); /* Тот самый полупрозрачный */
+            background: rgba(255, 255, 253, 0.45); /* Прозрачность */
             backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-            padding: 60px 30px; border-radius: 40px;
-            text-align: center; width: 100%; max-width: 450px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.25);
+            padding: 70px 25px; border-radius: 50px;
+            text-align: center; width: 100%; max-width: 420px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
         }
 
         .glass-card h2 {
-            font-family: 'Playfair Display', serif; font-size: 1.8em;
-            margin-bottom: 25px; font-style: italic; color: #1a1a1a;
+            font-size: 2.2em; font-weight: 300; font-style: italic;
+            margin-bottom: 30px; color: #1a1a1a;
         }
 
-        .date-strip {
+        .date-box {
             background: var(--main); color: #fff;
-            margin: 40px -30px; padding: 30px 10px;
+            margin: 45px -25px; padding: 35px 10px;
         }
-        .date-strip p {
-            font-family: 'Cinzel', serif; font-size: 2em; letter-spacing: 3px;
+        .date-box p:first-child {
+            font-family: 'Cinzel', serif; font-size: 1.8em; letter-spacing: 4px;
         }
 
         .btn {
-            display: inline-block; margin-top: 40px;
-            padding: 18px 45px; background: var(--main);
+            display: inline-block; margin-top: 45px;
+            padding: 16px 40px; background: var(--main);
             color: #fff; text-decoration: none;
             border-radius: 50px; text-transform: uppercase;
-            font-size: 0.8em; letter-spacing: 2px; font-weight: 500;
+            font-size: 0.75em; letter-spacing: 3px; font-family: 'Montserrat', sans-serif;
+            transition: 0.4s;
         }
 
+        /* АДАПТАЦИЯ ПОД ПК */
         @media (min-width: 1025px) {
-            .glass-card { background: #fff; backdrop-filter: none; max-width: 500px; }
-            .info-section { background: #fdfdfb; }
-            .video-gap { display: none; }
+            .video-bg { width: 50%; left: 0; } /* Видео слева */
+            .page-content { width: 50%; margin-left: 50%; background: #fdfdfb; } /* Контент справа */
+            .hero-section { height: 100vh; }
+            .spacer { display: none; }
+            .glass-card { background: #fff; backdrop-filter: none; border: none; box-shadow: none; }
+            .info-card-container { padding: 100px 40px; background: #fdfdfb; }
         }
     </style>
 </head>
@@ -132,33 +134,33 @@
         </video>
     </div>
 
-    <div class="main-scroll">
+    <div class="page-content">
         
-        <section class="hero-photo">
+        <section class="hero-section">
             <h1>Данил & Ирина</h1>
         </section>
 
-        <div class="video-gap"></div>
+        <div class="spacer"></div>
 
-        <section class="info-section">
+        <section class="info-card-container">
             <div class="glass-card">
                 <h2>Дорогие и любимые!</h2>
-                <p style="line-height: 1.8; font-size: 1.1em; color: #000; font-style: italic;">
-                    Один из дней лета станет самым важным в нашей жизни.<br>
-                    И мы хотим провести его вместе с вами.
+                <p style="font-size: 1.4em; line-height: 1.6; color: #1a1a1a; font-weight: 300;">
+                    Один из дней лета станет самым важным в нашей жизни. 
+                    Мы хотим провести его вместе с вами.
                 </p>
                 
-                <div class="date-strip">
-                    <p>26 . 07 . 2026</p>
-                    <p style="font-size: 0.8em; text-transform: uppercase; margin-top: 8px; letter-spacing: 2px;">Воскресенье • 16:30</p>
+                <div class="date-box">
+                    <p>26.07.2026</p>
+                    <p style="font-family: 'Montserrat', sans-serif; font-size: 0.7em; text-transform: uppercase; margin-top: 10px; letter-spacing: 3px;">Воскресенье • 16:30</p>
                 </div>
 
-                <div style="margin: 30px 0;">
-                    <p style="font-family: 'Playfair Display', serif; font-size: 1.5em; font-weight: 700; color: #000;">Ресторан «Престиж»</p>
-                    <p style="margin-top: 5px; font-weight: 500; color: #000;">г. Слободзея, ул. Фрунзе, 12</p>
+                <div style="margin-top: 30px;">
+                    <p style="font-size: 1.8em; font-weight: 400; color: #000;">Ресторан «Престиж»</p>
+                    <p style="font-family: 'Montserrat', sans-serif; font-size: 0.85em; margin-top: 8px; color: #555;">г. Слободзея, ул. Фрунзе, 12</p>
                 </div>
 
-                <a href="https://maps.app.goo.gl/uX7Mv5V8V8D2" target="_blank" class="btn">Место проведения</a>
+                <a href="https://maps.google.com/?q=46.7323,29.7067" target="_blank" class="btn">Место проведения</a>
             </div>
         </section>
     </div>
@@ -171,7 +173,7 @@
         function startAll() {
             if (curtain) {
                 curtain.style.opacity = '0';
-                setTimeout(() => { curtain.style.display = 'none'; }, 1000);
+                setTimeout(() => { curtain.style.display = 'none'; }, 1200);
             }
             if (video) video.play();
             if (audio) {
@@ -180,6 +182,7 @@
             }
         }
 
+        // Триггеры для мобильных
         ['touchstart', 'click'].forEach(evt => {
             window.addEventListener(evt, startAll, {once: true});
         });
