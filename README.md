@@ -176,4 +176,25 @@
         const curtain = document.getElementById('loader-curtain');
 
         function startAll() {
-            if (cur
+            if (curtain) {
+                curtain.style.opacity = '0';
+                setTimeout(() => { curtain.style.visibility = 'hidden'; }, 1500);
+            }
+            if (video) video.play();
+            if (audio && audio.paused) {
+                audio.volume = 0.4;
+                audio.play();
+            }
+        }
+
+        ['touchstart', 'click', 'scroll'].forEach(evt => {
+            window.addEventListener(evt, startAll, {once: true});
+        });
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) { audio.pause(); video.pause(); }
+            else { if (audio.currentTime > 0) audio.play(); video.play(); }
+        });
+    </script>
+</body>
+</html>
