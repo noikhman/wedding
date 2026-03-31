@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400&family=Lora:wght@400;500&family=Cinzel&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Cinzel&display=swap" rel="stylesheet">
 
     <style>
         :root { --main: #3b352d; }
@@ -16,8 +16,6 @@
             margin: 0; padding: 0; box-sizing: border-box; 
             -webkit-tap-highlight-color: transparent; 
             text-decoration: none !important; 
-            border: none !important;
-            outline: none !important;
         }
         
         body, html { 
@@ -38,7 +36,7 @@
             content: 'ОТКРЫТЬ';
             color: #fff; font-family: 'Cinzel', serif; font-style: normal;
             letter-spacing: 5px; font-size: 0.8em;
-            border: 1px solid rgba(255,255,255,0.2) !important; padding: 12px 35px;
+            border: 1px solid rgba(255,255,255,0.2); padding: 12px 35px;
         }
 
         .video-fixed {
@@ -84,17 +82,20 @@
             padding: 55px 15px; border-radius: 40px;
             text-align: center; width: 100%; max-width: 450px;
             box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.25) !important;
+            border: 1px solid rgba(255,255,255,0.25);
             color: #1a1a1a;
         }
 
-        /* ПРИВЕТСТВИЕ: Lora, Центровка */
-        .glass-card h2 {
+        /* Заголовки (Lora) */
+        .glass-card h2, .venue-title {
             font-family: 'Lora', serif; font-style: normal;
-            font-size: clamp(1.1em, 5.5vw, 1.8em); 
-            font-weight: 400; margin-bottom: 25px;
-            white-space: nowrap;
+            font-weight: 400; white-space: nowrap;
             text-align: center; width: 100%;
+        }
+
+        .glass-card h2 {
+            font-size: clamp(1.1em, 5.5vw, 1.8em); 
+            margin-bottom: 25px;
         }
 
         .glass-card p {
@@ -103,7 +104,7 @@
             line-height: 1.3;
         }
 
-        /* ДАТА И ВРЕМЯ: Увеличено */
+        /* БЛОК ДАТЫ: Увеличен */
         .date-box {
             background: var(--main); color: #fff;
             margin: 40px -15px; padding: 35px 5px;
@@ -111,26 +112,23 @@
         }
         .date-main {
             font-family: 'Cinzel', serif; 
-            font-size: clamp(1.8em, 8vw, 2.3em); /* Увеличен размер */
+            font-size: clamp(2em, 9vw, 2.5em); 
             letter-spacing: 4px;
         }
         .date-sub {
-            font-size: clamp(0.85em, 4vw, 1em); /* Увеличен размер */
+            font-size: clamp(0.9em, 4.5vw, 1.1em); 
             text-transform: uppercase; margin-top: 12px; 
             letter-spacing: 3px; font-family: sans-serif;
         }
 
-        /* МЕСТО ПРОВЕДЕНИЯ: Cormorant Garamond Italic */
-        .venue-name {
-            font-family: 'Cormorant Garamond', serif !important; 
-            font-style: italic !important;
-            font-weight: 400; 
-            font-size: clamp(1.3em, 7vw, 2.2em); 
-            white-space: nowrap; margin-bottom: 8px;
+        /* МЕСТО ПРОВЕДЕНИЯ: Название в Lora */
+        .venue-title {
+            font-size: clamp(1.3em, 6.5vw, 2em); 
+            margin-bottom: 8px;
         }
         .venue-address {
-            font-family: 'Cormorant Garamond', serif !important; 
-            font-style: italic !important;
+            font-family: 'Cormorant Garamond', serif; 
+            font-style: italic;
             font-size: clamp(1.1em, 5vw, 1.3em);
             color: #333;
         }
@@ -139,15 +137,16 @@
             display: inline-block; margin-top: 40px;
             padding: 18px 40px; background: var(--main);
             color: #fff !important; border-radius: 50px; 
-            text-transform: uppercase; font-size: 0.7em; 
+            text-transform: uppercase; font-size: 0.75em; 
             letter-spacing: 3px; font-family: sans-serif; font-style: normal;
+            cursor: pointer;
         }
 
         @media (min-width: 1025px) {
             .video-fixed { width: 45%; }
             .content-wrapper { width: 55%; margin-left: 45%; background: #fdfdfb; }
             .gap { display: none; }
-            .glass-card { background: #fff; backdrop-filter: none; box-shadow: none; border: none !important; }
+            .glass-card { background: #fff; backdrop-filter: none; box-shadow: none; border: none; }
         }
     </style>
 </head>
@@ -176,7 +175,7 @@
             <div class="glass-card">
                 <p style="text-transform: uppercase; letter-spacing: 4px; font-size: 0.7em; margin-bottom: 20px; font-style: normal;">Save the Date</p>
                 
-                <h2>Любимые и родные!</h2>
+                <h2>Дорогие и любимые!</h2>
                 
                 <p>
                     Один из дней лета станет самым важным в нашей жизни. 
@@ -189,11 +188,11 @@
                 </div>
 
                 <div style="margin-top: 30px;">
-                    <p class="venue-name">Ресторан «Престиж»</p>
+                    <p class="venue-title">Ресторан «Престиж»</p>
                     <p class="venue-address">г. Слободзея, ул. Фрунзе, 12</p>
                 </div>
 
-                <a href="https://maps.google.com" target="_blank" class="btn">Место проведения</a>
+                <a href="https://maps.google.com/?q=Ресторан+Престиж+Слободзея" target="_blank" class="btn">Место проведения</a>
             </div>
         </section>
     </div>
