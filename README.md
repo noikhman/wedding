@@ -195,7 +195,7 @@
                     <p class="venue-address">г. Слободзея, ул. Фрунзе, 12</p>
                 </div>
 
-                <a href="https://maps.app.goo.gl/yQJ6tL6PqS6V9pX9A" target="_blank" class="btn">Место проведения</a>
+                <a href="https://maps.app.goo.gl/9eMWfcTeJakhhC7i6" target="_blank" class="btn">Место проведения</a>
             </div>
         </section>
     </div>
