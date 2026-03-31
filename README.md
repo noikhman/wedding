@@ -16,13 +16,11 @@
         body, html { 
             width: 100%; height: 100%; 
             background-color: #000; 
-            /* Основной шрифт для контента - Cormorant Garamond Italic */
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
             overflow-x: hidden;
         }
 
-        /* Начальный экран */
         #loader-curtain {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-color: #000; z-index: 10000;
@@ -32,12 +30,10 @@
         #loader-curtain::after {
             content: 'ОТКРЫТЬ';
             color: #fff; font-family: 'Lora', serif;
-            font-style: normal;
-            letter-spacing: 5px; font-size: 0.8em;
+            font-style: normal; letter-spacing: 5px; font-size: 0.8em;
             border: 1px solid rgba(255,255,255,0.3); padding: 12px 35px;
         }
 
-        /* Видео фон */
         .video-fixed {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100vh;
@@ -51,7 +47,7 @@
             width: 100%;
         }
 
-        /* Фото-шторка */
+        /* Фото на весь экран без полосок */
         .hero-photo {
             width: 100vw; height: 100vh;
             background-image: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.7) 100%), 
@@ -61,13 +57,13 @@
             padding-bottom: 15vh;
         }
 
-        /* Шрифт Lora для имен */
         .hero-photo h1 { 
             color: #fff; font-size: clamp(2em, 10vw, 4em); 
             font-weight: 400; text-align: center;
             text-shadow: 0 4px 20px rgba(0,0,0,0.9);
             font-family: 'Lora', serif;
             font-style: normal;
+            border: none; text-decoration: none;
         }
 
         .gap { height: 90vh; background: transparent; }
@@ -88,6 +84,7 @@
         .date-box {
             background: var(--main); color: #fff;
             margin: 40px -20px; padding: 30px 10px;
+            border: none;
         }
 
         .date-box p:first-child {
@@ -95,20 +92,21 @@
         }
 
         .date-box p:last-child {
-            font-size: 0.9em; text-transform: uppercase; margin-top: 10px; letter-spacing: 3px;
+            font-size: 1.1em; text-transform: uppercase; margin-top: 10px; letter-spacing: 2px;
         }
 
-        /* Шрифт Lora для приветствия */
+        /* Приветствие Lora в одну строку */
         .greeting-title {
             font-family: 'Lora', serif;
             font-style: normal;
-            font-size: 1.1em; 
+            font-size: 1.05em; 
             margin-bottom: 25px; 
             font-weight: 400; 
-            letter-spacing: 1.5px; 
+            letter-spacing: 1px; 
             text-transform: uppercase;
             white-space: nowrap; 
             color: #000;
+            border: none;
         }
 
         .main-text {
@@ -127,7 +125,7 @@
         }
 
         .location-box p:last-child {
-            font-size: 1.1em; color: #444; margin-top: 5px;
+            font-size: 1.2em; color: #333; margin-top: 5px;
         }
 
         .btn {
@@ -172,7 +170,7 @@
 
         <section class="info-section">
             <div class="glass-card">
-                <p style="text-transform: uppercase; letter-spacing: 4px; font-size: 0.8em; margin-bottom: 25px; color: #666; font-family: 'Lora', serif; font-style: normal;">Save the Date</p>
+                <p style="text-transform: uppercase; letter-spacing: 3px; font-size: 0.8em; margin-bottom: 25px; color: #666; font-family: 'Lora', serif; font-style: normal;">Save the Date</p>
                 
                 <h2 class="greeting-title">Дорогие и любимые!</h2>
                 
