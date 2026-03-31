@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
     <style>
         :root { --main: #3b352d; }
@@ -48,23 +48,27 @@
             width: 100%;
         }
 
-        /* Фото-шторка */
+        /* Фото-шторка (на весь экран по бокам) */
         .hero-photo {
-            width: 100%; height: auto;
+            width: 100vw; 
+            height: 100vh;
             background-image: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.7) 100%), 
                               url('photo.jpg');
-            background-size: cover; background-position: center;
-            display: flex; align-items: flex-end; justify-content: center;
+            background-size: cover; 
+            background-position: center;
+            display: flex; 
+            align-items: flex-end; 
+            justify-content: center;
             padding-bottom: 15vh;
+            margin-left: 0;
+            margin-right: 0;
         }
 
-        /* Шрифт Great Vibes ТОЛЬКО здесь */
         .hero-photo h1 { 
             color: #fff; font-size: clamp(3.5em, 15vw, 6em); 
             font-weight: 400; text-align: center;
             text-shadow: 0 4px 20px rgba(0,0,0,0.9);
             font-family: 'Great Vibes', cursive;
-            text-decoration: none; border: none; /* Без полосок */
         }
 
         .gap { height: 90vh; background: transparent; }
@@ -74,22 +78,19 @@
             display: flex; justify-content: center;
         }
 
-        /* Прозрачная карточка */
         .glass-card {
             background: rgba(255, 255, 253, 0.45);
             backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-            padding: 60px 25px; border-radius: 40px;
+            padding: 60px 20px; border-radius: 40px;
             text-align: center; width: 100%; max-width: 450px;
             box-shadow: 0 25px 50px rgba(0,0,0,0.3);
         }
 
-        /* Возвращено выделение даты */
         .date-box {
             background: var(--main); 
             color: #fff;
-            margin: 40px -25px; 
+            margin: 40px -20px; 
             padding: 30px 10px;
-            border: none;
         }
 
         .date-box p:first-child {
@@ -100,8 +101,18 @@
             font-size: 0.7em; text-transform: uppercase; margin-top: 10px; letter-spacing: 3px;
         }
 
+        /* Уменьшенный шрифт для одной строки */
+        .greeting-title {
+            font-size: 1.15em; 
+            margin-bottom: 25px; 
+            font-weight: 400; 
+            letter-spacing: 1.5px; 
+            text-transform: uppercase;
+            white-space: nowrap; 
+        }
+
         .main-text {
-            font-size: 1.1em; line-height: 1.7; color: #1a1a1a; 
+            font-size: 1.05em; line-height: 1.7; color: #1a1a1a; 
             margin-bottom: 25px; font-weight: 300;
         }
 
@@ -109,8 +120,13 @@
             margin-top: 30px;
         }
 
+        /* Название ресторана без жирности в одну строку */
         .location-box p:first-child {
-            font-size: 1.3em; font-weight: 600; color: #000; letter-spacing: 1px;
+            font-size: 1.2em; 
+            font-weight: 400; 
+            color: #000; 
+            letter-spacing: 1.5px;
+            white-space: nowrap;
         }
 
         .location-box p:last-child {
@@ -122,12 +138,13 @@
             padding: 18px 45px; background: var(--main);
             color: #fff; text-decoration: none;
             border-radius: 50px; text-transform: uppercase;
-            font-size: 0.75em; letter-spacing: 3px; font-weight: 600;
+            font-size: 0.75em; letter-spacing: 3px; font-weight: 500;
         }
 
         @media (min-width: 1025px) {
             .video-fixed { width: 45%; }
             .content-wrapper { width: 55%; margin-left: 45%; background: #fdfdfb; }
+            .hero-photo { width: 100%; }
             .gap { display: none; }
             .glass-card { background: #fff; backdrop-filter: none; box-shadow: none; }
             .date-box { margin: 40px 0; border-radius: 10px; }
@@ -159,7 +176,7 @@
             <div class="glass-card">
                 <p style="text-transform: uppercase; letter-spacing: 4px; font-size: 0.7em; margin-bottom: 25px; color: #666;">Save the Date</p>
                 
-                <h2 style="font-size: 1.5em; margin-bottom: 20px; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; border: none;">Дорогие и любимые!</h2>
+                <h2 class="greeting-title">Дорогие и любимые!</h2>
                 
                 <p class="main-text">
                     Один из дней лета станет самым важным в нашей жизни. <br>
@@ -176,7 +193,7 @@
                     <p>г. Слободзея, ул. Фрунзе, 12</p>
                 </div>
 
-                <a href="https://www.google.com/maps/search/?api=1&query=Ресторан+Престиж+Слободзея" target="_blank" class="btn">Место проведения</a>
+                <a href="https://maps.google.com/?q=г.+Слободзея,+ул.+Фрунзе,+12" target="_blank" class="btn">Место проведения</a>
             </div>
         </section>
     </div>
