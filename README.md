@@ -17,12 +17,12 @@
             width: 100%; height: 100%; 
             background-color: #000; 
             overflow-x: hidden;
-            /* По умолчанию ставим Cormorant Garamond Regular 400 Italic */
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
             font-weight: 400;
         }
 
+        /* Экран активации */
         #loader-curtain {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-color: #000; z-index: 10000;
@@ -36,6 +36,7 @@
             border: 1px solid rgba(255,255,255,0.2); padding: 12px 35px;
         }
 
+        /* Видео (нижний слой) */
         .video-fixed {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100vh;
@@ -43,29 +44,31 @@
         }
         video { width: 100%; height: 100%; object-fit: cover; }
 
+        /* Контент (верхний слой) */
         .content-wrapper {
             position: relative;
-            z-index: 100;
+            z-index: 100; /* Перекрывает видео */
             width: 100%;
         }
 
+        /* Фото на весь экран */
         .hero-photo {
             width: 100%; height: 100vh;
             background-image: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%), 
                               url('https://raw.githubusercontent.com/noikhman/wedding/main/%E2%84%96999_159.JPG');
             background-size: cover; background-position: center;
             display: flex; align-items: flex-end; justify-content: center;
-            padding-bottom: 15vh;
+            padding-bottom: 15vh; /* Опускаем надпись ниже середины */
         }
 
-        /* ИМЕНА: ШРИФТ LORA */
+        /* ИМЕНА: Lora, в одну строку */
         .hero-photo h1 { 
             font-family: 'Lora', serif; 
             font-style: normal;
             color: #fff; font-size: clamp(1.8em, 7vw, 3.5em); 
             font-weight: 400; letter-spacing: 1px; text-align: center;
-            text-decoration: none; white-space: nowrap;
-            text-shadow: 0 2px 15px rgba(0,0,0,0.5);
+            white-space: nowrap; /* Запрет переноса */
+            text-shadow: 0 2px 15px rgba(0,0,0,0.6);
         }
 
         .gap { height: 85vh; background: transparent; }
@@ -75,6 +78,7 @@
             display: flex; justify-content: center;
         }
 
+        /* Стеклянная карточка */
         .glass-card {
             background: rgba(255, 255, 253, 0.45);
             backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
@@ -85,7 +89,7 @@
             color: #1a1a1a;
         }
 
-        /* ПРИВЕТСТВИЕ: ШРИФТ LORA */
+        /* ПРИВЕТСТВИЕ: Lora */
         .glass-card h2 {
             font-family: 'Lora', serif;
             font-style: normal;
@@ -93,7 +97,7 @@
             margin-bottom: 25px;
         }
 
-        /* ВСЁ ОСТАЛЬНОЕ: Cormorant Garamond Regular 400 Italic */
+        /* ОСТАЛЬНОЕ: Cormorant Garamond Italic */
         .glass-card p, .glass-card .venue-name {
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
@@ -103,7 +107,7 @@
         .date-box {
             background: var(--main); color: #fff;
             margin: 40px -25px; padding: 30px 10px;
-            font-style: normal; /* Для цифр */
+            font-style: normal;
         }
 
         .btn {
@@ -115,6 +119,7 @@
             font-family: sans-serif; font-style: normal;
         }
 
+        /* Адаптация под ПК */
         @media (min-width: 1025px) {
             .video-fixed { width: 45%; }
             .content-wrapper { width: 55%; margin-left: 45%; background: #fdfdfb; }
@@ -166,7 +171,7 @@
                     <p style="font-size: 1.1em; margin-top: 5px;">г. Слободзея, ул. Фрунзе, 12</p>
                 </div>
 
-                <a href="https://maps.google.com/?q=46.7265,29.7073" target="_blank" class="btn">Место проведения</a>
+                <a href="https://maps.google.com/?q=46.7291,29.7061" target="_blank" class="btn">Место проведения</a>
             </div>
         </section>
     </div>
