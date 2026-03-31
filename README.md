@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Данил & Ирина</title>
+    <title>Приглашение: Данил и Ирина</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,7 @@
             overflow-x: hidden;
         }
 
-        /* Экран активации */
+        /* Начальный экран (активация звука) */
         #loader-curtain {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-color: #000; z-index: 10000;
@@ -34,7 +34,7 @@
             border: 1px solid rgba(255,255,255,0.2); padding: 12px 35px;
         }
 
-        /* НИЖНИЙ СЛОЙ: ВИДЕО */
+        /* Видео фон */
         .video-fixed {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100vh;
@@ -42,43 +42,42 @@
         }
         video { width: 100%; height: 100%; object-fit: cover; }
 
-        /* ВЕРХНИЙ СЛОЙ: СКРОЛЛ */
+        /* Контейнер контента */
         .content-wrapper {
             position: relative;
-            z-index: 100; /* Гарантирует перекрытие видео */
+            z-index: 100;
             width: 100%;
         }
 
-        /* ФОТО (ПЕРВЫЙ ЭКРАН) */
+        /* Фото (Первый экран) */
         .hero-photo {
             width: 100%; height: 100vh;
             background-image: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%), 
                               url('https://raw.githubusercontent.com/noikhman/wedding/main/%E2%84%96999_159.JPG');
             background-size: cover; background-position: center;
             display: flex; align-items: flex-end; justify-content: center;
-            padding-bottom: 15vh; /* Опускаем надпись ниже середины */
+            padding-bottom: 12vh;
         }
 
         .hero-photo h1 { 
-            font-family: 'Cormorant Garamond', serif; 
             color: #fff; font-size: clamp(2em, 8vw, 4em); 
             font-weight: 300; letter-spacing: 2px; text-align: center;
-            font-style: italic; text-decoration: none; /* Без подчеркивания */
-            white-space: nowrap; /* В одну строку */
+            font-style: italic; text-decoration: none;
+            white-space: nowrap;
             text-shadow: 0 2px 15px rgba(0,0,0,0.5);
         }
 
-        /* Промежуток для видео */
+        /* Просвет для видео */
         .gap { height: 85vh; background: transparent; }
 
-        /* КАРТОЧКА */
+        /* Полупрозрачная карточка */
         .info-section {
             padding: 40px 15px 120px;
             display: flex; justify-content: center;
         }
 
         .glass-card {
-            background: rgba(255, 255, 253, 0.45); /* Полупрозрачность */
+            background: rgba(255, 255, 253, 0.45);
             backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
             padding: 60px 25px; border-radius: 40px;
             text-align: center; width: 100%; max-width: 450px;
@@ -86,17 +85,9 @@
             border: 1px solid rgba(255,255,255,0.25);
         }
 
-        .glass-card h2 {
-            font-size: 2.2em; font-weight: 300; font-style: italic;
-            margin-bottom: 25px; color: #1a1a1a;
-        }
-
         .date-box {
             background: var(--main); color: #fff;
             margin: 40px -25px; padding: 30px 10px;
-        }
-        .date-box p:first-child {
-            font-family: 'Cinzel', serif; font-size: 1.8em; letter-spacing: 4px;
         }
 
         .btn {
@@ -107,7 +98,7 @@
             font-size: 0.75em; letter-spacing: 3px; font-family: 'Montserrat', sans-serif;
         }
 
-        /* ПК-версия */
+        /* Адаптация под ПК */
         @media (min-width: 1025px) {
             .video-fixed { width: 45%; }
             .content-wrapper { width: 55%; margin-left: 45%; background: #fdfdfb; }
@@ -140,15 +131,15 @@
 
         <section class="info-section">
             <div class="glass-card">
-                <p style="text-transform: uppercase; letter-spacing: 4px; font-size: 0.7em; margin-bottom: 20px; font-family: 'Montserrat'; font-weight: 400;">Save the Date</p>
-                <h2>Дорогие и любимые!</h2>
+                <p style="text-transform: uppercase; letter-spacing: 4px; font-size: 0.7em; margin-bottom: 20px; font-family: 'Montserrat';">Save the Date</p>
+                <h2 style="font-size: 2.2em; font-weight: 300; font-style: italic; margin-bottom: 25px;">Дорогие и любимые!</h2>
                 <p style="font-size: 1.4em; line-height: 1.6; color: #1a1a1a; font-weight: 300; font-style: italic;">
                     Один из дней лета станет самым важным в нашей жизни. 
                     Мы хотим провести его вместе с вами.
                 </p>
                 
                 <div class="date-box">
-                    <p>26.07.2026</p>
+                    <p style="font-family: 'Cinzel', serif; font-size: 1.8em; letter-spacing: 4px;">26.07.2026</p>
                     <p style="font-family: 'Montserrat'; font-size: 0.7em; text-transform: uppercase; margin-top: 10px; letter-spacing: 3px;">Воскресенье • 16:30</p>
                 </div>
 
@@ -157,7 +148,7 @@
                     <p style="font-family: 'Montserrat'; font-size: 0.85em; margin-top: 5px; color: #555;">г. Слободзея, ул. Фрунзе, 12</p>
                 </div>
 
-                <a href="https://maps.app.goo.gl/dsVRbwvtxUHcUdaE7" target="_blank" class="btn">Место проведения</a>
+                <a href="https://maps.google.com/?q=Слободзея+Фрунзе+12" target="_blank" class="btn">Место проведения</a>
             </div>
         </section>
     </div>
