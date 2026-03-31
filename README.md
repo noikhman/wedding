@@ -177,7 +177,7 @@
             <div class="glass-card">
                 <p style="text-transform: uppercase; letter-spacing: 5px; font-size: 0.7em; margin-bottom: 30px; font-style: normal;">Save the Date</p>
                 
-                <h2>Любимые и родные!</h2>
+                <h2>Дорогие и любимы!</h2>
                 
                 <p>
                     Один из дней лета станет самым важным в нашей жизни. 
