@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
         :root { --main: #3b352d; }
@@ -16,7 +16,7 @@
         body, html { 
             width: 100%; height: 100%; 
             background-color: #000; 
-            font-family: 'Great Vibes', cursive; /* Единственный шрифт для всего */
+            font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
         }
 
@@ -29,12 +29,12 @@
         }
         #loader-curtain::after {
             content: 'ОТКРЫТЬ';
-            color: #fff; font-family: 'Great Vibes', cursive;
-            letter-spacing: 2px; font-size: 1.5em; /* Шрифт Great Vibes требует большего размера */
-            padding: 15px 40px;
+            color: #fff; font-family: 'Montserrat', sans-serif;
+            letter-spacing: 5px; font-size: 0.8em;
+            border: 1px solid rgba(255,255,255,0.3); padding: 12px 35px;
         }
 
-        /* Видео */
+        /* Видео фон */
         .video-fixed {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100vh;
@@ -58,12 +58,13 @@
             padding-bottom: 15vh;
         }
 
+        /* Шрифт Great Vibes ТОЛЬКО здесь */
         .hero-photo h1 { 
-            color: #fff; font-size: clamp(3em, 12vw, 6em); /* Увеличен размер для cursive */
+            color: #fff; font-size: clamp(3.5em, 15vw, 6em); 
             font-weight: 400; text-align: center;
             text-shadow: 0 4px 20px rgba(0,0,0,0.9);
             font-family: 'Great Vibes', cursive;
-            text-transform: none; /* Каллиграфия не любит капс */
+            text-decoration: none; border: none; /* Без полосок */
         }
 
         .gap { height: 90vh; background: transparent; }
@@ -80,57 +81,56 @@
             padding: 60px 25px; border-radius: 40px;
             text-align: center; width: 100%; max-width: 450px;
             box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-            border: none; /* Убрана граница */
         }
 
-        /* Блок даты без полосок */
+        /* Возвращено выделение даты */
         .date-box {
-            color: #000; /* Цвет текста изменен, т.к. убрали фон */
-            margin: 30px 0; /* Убраны отрицательные отступы */
-            padding: 0;
-            background: transparent; /* Убран фон */
+            background: var(--main); 
+            color: #fff;
+            margin: 40px -25px; 
+            padding: 30px 10px;
+            border: none;
         }
 
-        /* Текстовые блоки */
+        .date-box p:first-child {
+            font-size: 2em; letter-spacing: 5px; font-weight: 300;
+        }
+
+        .date-box p:last-child {
+            font-size: 0.7em; text-transform: uppercase; margin-top: 10px; letter-spacing: 3px;
+        }
+
         .main-text {
-            font-size: 1.8em; /* Увеличен размер */
-            line-height: 1.4; 
-            color: #000; 
-            font-family: 'Great Vibes', cursive;
-            margin-bottom: 25px;
-            text-align: center;
+            font-size: 1.1em; line-height: 1.7; color: #1a1a1a; 
+            margin-bottom: 25px; font-weight: 300;
         }
 
         .location-box {
             margin-top: 30px;
-            text-align: center;
         }
 
         .location-box p:first-child {
-            font-size: 2.2em; /* Увеличен размер */
-            color: #000;
-            margin-bottom: 5px;
+            font-size: 1.3em; font-weight: 600; color: #000; letter-spacing: 1px;
         }
 
         .location-box p:last-child {
-            font-size: 1.5em; /* Увеличен размер */
-            color: #000;
+            font-size: 0.85em; color: #444; margin-top: 5px;
         }
 
         .btn {
-            display: inline-block; margin-top: 35px;
-            padding: 15px 40px; background: var(--main);
+            display: inline-block; margin-top: 40px;
+            padding: 18px 45px; background: var(--main);
             color: #fff; text-decoration: none;
-            border-radius: 50px; text-transform: none; /* Без капса */
-            font-size: 1.6em; /* Увеличен размер текста на кнопке */
-            font-family: 'Great Vibes', cursive;
+            border-radius: 50px; text-transform: uppercase;
+            font-size: 0.75em; letter-spacing: 3px; font-weight: 600;
         }
 
         @media (min-width: 1025px) {
             .video-fixed { width: 45%; }
             .content-wrapper { width: 55%; margin-left: 45%; background: #fdfdfb; }
             .gap { display: none; }
-            .glass-card { background: #fff; backdrop-filter: none; box-shadow: none; border: none; }
+            .glass-card { background: #fff; backdrop-filter: none; box-shadow: none; }
+            .date-box { margin: 40px 0; border-radius: 10px; }
         }
     </style>
 </head>
@@ -157,9 +157,9 @@
 
         <section class="info-section">
             <div class="glass-card">
-                <p style="font-size: 1.4em; margin-bottom: 10px; color: #333;">Save the Date</p>
+                <p style="text-transform: uppercase; letter-spacing: 4px; font-size: 0.7em; margin-bottom: 25px; color: #666;">Save the Date</p>
                 
-                <h2 style="font-size: 2.8em; margin-bottom: 20px; font-weight: 400; text-align: center; white-space: nowrap;">Дорогие и любимые!</h2>
+                <h2 style="font-size: 1.5em; margin-bottom: 20px; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; border: none;">Дорогие и любимые!</h2>
                 
                 <p class="main-text">
                     Один из дней лета станет самым важным в нашей жизни. <br>
@@ -167,16 +167,16 @@
                 </p>
                 
                 <div class="date-box">
-                    <p style="font-size: 3em;">26.07.2026</p>
-                    <p style="font-size: 1.8em; margin-top: 5px;">Воскресенье • 16:30</p>
+                    <p>26.07.2026</p>
+                    <p>Воскресенье • 16:30</p>
                 </div>
 
                 <div class="location-box">
-                    <p>Ресторан «Престиж»</p>
+                    <p>РЕСТОРАН «ПРЕСТИЖ»</p>
                     <p>г. Слободзея, ул. Фрунзе, 12</p>
                 </div>
 
-                <a href="https://maps.app.goo.gl/P6jM7bA4wF6P2V8s8" target="_blank" class="btn">Место проведения</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Ресторан+Престиж+Слободзея" target="_blank" class="btn">Место проведения</a>
             </div>
         </section>
     </div>
