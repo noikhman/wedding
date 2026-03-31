@@ -22,7 +22,6 @@
             font-weight: 400;
         }
 
-        /* Экран активации */
         #loader-curtain {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-color: #000; z-index: 10000;
@@ -36,7 +35,6 @@
             border: 1px solid rgba(255,255,255,0.2); padding: 12px 35px;
         }
 
-        /* Видео (нижний слой) */
         .video-fixed {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100vh;
@@ -44,30 +42,28 @@
         }
         video { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Контент (верхний слой) */
         .content-wrapper {
             position: relative;
-            z-index: 100; /* Перекрывает видео */
+            z-index: 100;
             width: 100%;
         }
 
-        /* Фото на весь экран */
         .hero-photo {
             width: 100%; height: 100vh;
             background-image: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%), 
                               url('https://raw.githubusercontent.com/noikhman/wedding/main/%E2%84%96999_159.JPG');
             background-size: cover; background-position: center;
             display: flex; align-items: flex-end; justify-content: center;
-            padding-bottom: 15vh; /* Опускаем надпись ниже середины */
+            padding-bottom: 15vh;
         }
 
-        /* ИМЕНА: Lora, в одну строку */
         .hero-photo h1 { 
             font-family: 'Lora', serif; 
             font-style: normal;
-            color: #fff; font-size: clamp(1.8em, 7vw, 3.5em); 
+            color: #fff; 
+            font-size: clamp(1.6em, 7.5vw, 3.5em); 
             font-weight: 400; letter-spacing: 1px; text-align: center;
-            white-space: nowrap; /* Запрет переноса */
+            white-space: nowrap;
             text-shadow: 0 2px 15px rgba(0,0,0,0.6);
         }
 
@@ -78,7 +74,6 @@
             display: flex; justify-content: center;
         }
 
-        /* Стеклянная карточка */
         .glass-card {
             background: rgba(255, 255, 253, 0.45);
             backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
@@ -89,16 +84,17 @@
             color: #1a1a1a;
         }
 
-        /* ПРИВЕТСТВИЕ: Lora */
+        /* ПРИВЕТСТВИЕ: Уменьшено для мобильных, чтобы влезло в строку */
         .glass-card h2 {
             font-family: 'Lora', serif;
             font-style: normal;
-            font-size: 2em; font-weight: 400;
+            font-size: clamp(1.3em, 6vw, 2em); 
+            font-weight: 400;
             margin-bottom: 25px;
+            white-space: nowrap;
         }
 
-        /* ОСТАЛЬНОЕ: Cormorant Garamond Italic */
-        .glass-card p, .glass-card .venue-name {
+        .glass-card p {
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
             font-weight: 400;
@@ -110,6 +106,15 @@
             font-style: normal;
         }
 
+        /* НАЗВАНИЕ РЕСТОРАНА: Уменьшено для мобильных */
+        .venue-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: clamp(1.4em, 6.5vw, 2.2em); 
+            white-space: nowrap;
+        }
+
         .btn {
             display: inline-block; margin-top: 40px;
             padding: 18px 45px; background: var(--main);
@@ -119,7 +124,6 @@
             font-family: sans-serif; font-style: normal;
         }
 
-        /* Адаптация под ПК */
         @media (min-width: 1025px) {
             .video-fixed { width: 45%; }
             .content-wrapper { width: 55%; margin-left: 45%; background: #fdfdfb; }
@@ -167,11 +171,11 @@
                 </div>
 
                 <div style="margin-top: 30px;">
-                    <p class="venue-name" style="font-size: 1.9em;">Ресторан «Престиж»</p>
+                    <p class="venue-name">Ресторан «Престиж»</p>
                     <p style="font-size: 1.1em; margin-top: 5px;">г. Слободзея, ул. Фрунзе, 12</p>
                 </div>
 
-                <a href="https://maps.google.com/?q=46.7291,29.7061" target="_blank" class="btn">Место проведения</a>
+                <a href="https://maps.google.com/?q=46.7303,29.7042" target="_blank" class="btn">Место проведения</a>
             </div>
         </section>
     </div>
