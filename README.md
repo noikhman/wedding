@@ -49,13 +49,17 @@
             width: 100%;
         }
 
-        /* Фото (Первый экран) */
+        /* Фото-шторка (Первый экран) */
         .hero-photo {
-            width: 100%; height: 100vh;
+            width: 100%; 
+            height: 100vh; /* Высота на весь экран */
             background-image: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%), 
-                              url('https://raw.githubusercontent.com/noikhman/wedding/main/%E2%84%96999_159.JPG');
-            background-size: cover; background-position: center;
-            display: flex; align-items: flex-end; justify-content: center;
+                              url('photo.jpg');
+            background-size: cover; 
+            background-position: center;
+            display: flex; 
+            align-items: flex-end; 
+            justify-content: center;
             padding-bottom: 12vh;
         }
 
@@ -67,7 +71,7 @@
             text-shadow: 0 2px 15px rgba(0,0,0,0.5);
         }
 
-        /* Просвет для видео */
+        /* Просвет для видео при скролле */
         .gap { height: 85vh; background: transparent; }
 
         /* Полупрозрачная карточка */
@@ -113,7 +117,7 @@
     <div id="loader-curtain" onclick="startAll()"></div>
 
     <audio id="music" loop preload="auto">
-        <source src="https://raw.githubusercontent.com/noikhman/wedding/main/Stephen%20Sanchez%20-%20Until%20I%20Found%20You%20(Piano%20Karaoke).mp3" type="audio/mpeg">
+        <source src="https://raw.githubusercontent.com/noikhman/wedding/main/StephenSanchez-UntilIFoundYou(PianoKaraoke).mp3" type="audio/mpeg">
     </audio>
 
     <div class="video-fixed">
@@ -148,7 +152,7 @@
                     <p style="font-family: 'Montserrat'; font-size: 0.85em; margin-top: 5px; color: #555;">г. Слободзея, ул. Фрунзе, 12</p>
                 </div>
 
-                <a href="https://maps.google.com/?q=Слободзея+Фрунзе+12" target="_blank" class="btn">Место проведения</a>
+                <a href="https://maps.google.com" target="_blank" class="btn">Место проведения</a>
             </div>
         </section>
     </div>
