@@ -50,7 +50,7 @@
 
         /* Фото-шторка */
         .hero-photo {
-            width: 100%; height: 100vh;
+            width: 100%; height: auto;
             background-image: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.7) 100%), 
                               url('photo.jpg');
             background-size: cover; background-position: center;
