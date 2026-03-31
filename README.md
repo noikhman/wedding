@@ -12,10 +12,13 @@
     <style>
         :root { --main: #3b352d; }
         
+        /* ПОЛНОЕ УДАЛЕНИЕ ПОЛОСОК И РАМОК */
         * { 
             margin: 0; padding: 0; box-sizing: border-box; 
             -webkit-tap-highlight-color: transparent; 
             text-decoration: none !important; 
+            border: none !important;
+            outline: none !important;
         }
         
         body, html { 
@@ -36,7 +39,7 @@
             content: 'ОТКРЫТЬ';
             color: #fff; font-family: 'Cinzel', serif; font-style: normal;
             letter-spacing: 5px; font-size: 0.8em;
-            border: 1px solid rgba(255,255,255,0.2); padding: 12px 35px;
+            border: 1px solid rgba(255,255,255,0.2) !important; padding: 12px 35px;
         }
 
         .video-fixed {
@@ -63,10 +66,10 @@
 
         .hero-photo h1 { 
             font-family: 'Lora', serif; font-style: normal;
-            color: #fff; font-size: clamp(1.6em, 7.5vw, 3.5em); 
-            font-weight: 400; letter-spacing: 1px; text-align: center;
+            color: #fff; font-size: clamp(1.8em, 8vw, 4em); 
+            font-weight: 400; letter-spacing: 2px; text-align: center;
             white-space: nowrap;
-            text-shadow: 0 2px 15px rgba(0,0,0,0.6);
+            text-shadow: 0 4px 20px rgba(0,0,0,0.7);
         }
 
         .gap { height: 85vh; background: transparent; }
@@ -77,16 +80,14 @@
         }
 
         .glass-card {
-            background: rgba(255, 255, 253, 0.45);
+            background: rgba(255, 255, 253, 0.5);
             backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-            padding: 55px 15px; border-radius: 40px;
-            text-align: center; width: 100%; max-width: 450px;
+            padding: 60px 20px; border-radius: 40px;
+            text-align: center; width: 100%; max-width: 500px; /* Увеличено */
             box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.25);
             color: #1a1a1a;
         }
 
-        /* Заголовки (Lora) */
         .glass-card h2, .venue-title {
             font-family: 'Lora', serif; font-style: normal;
             font-weight: 400; white-space: nowrap;
@@ -94,59 +95,70 @@
         }
 
         .glass-card h2 {
-            font-size: clamp(1.1em, 5.5vw, 1.8em); 
+            font-size: clamp(1.2em, 6vw, 2em); 
             margin-bottom: 25px;
         }
 
         .glass-card p {
             font-family: 'Cormorant Garamond', serif; font-style: italic;
-            font-weight: 400; font-size: clamp(1.2em, 5vw, 1.5em); 
-            line-height: 1.3;
+            font-weight: 400; font-size: clamp(1.3em, 5.5vw, 1.7em); 
+            line-height: 1.4;
         }
 
-        /* БЛОК ДАТЫ: Увеличен */
+        /* УВЕЛИЧЕННАЯ ДАТА */
         .date-box {
             background: var(--main); color: #fff;
-            margin: 40px -15px; padding: 35px 5px;
+            margin: 40px -20px; padding: 45px 10px;
             font-style: normal;
         }
         .date-main {
             font-family: 'Cinzel', serif; 
-            font-size: clamp(2em, 9vw, 2.5em); 
-            letter-spacing: 4px;
+            font-size: clamp(2.2em, 10vw, 3em); /* Максимально крупно */
+            letter-spacing: 5px;
         }
         .date-sub {
-            font-size: clamp(0.9em, 4.5vw, 1.1em); 
-            text-transform: uppercase; margin-top: 12px; 
-            letter-spacing: 3px; font-family: sans-serif;
+            font-size: clamp(1em, 5vw, 1.2em); 
+            text-transform: uppercase; margin-top: 15px; 
+            letter-spacing: 4px; font-family: sans-serif;
         }
 
-        /* МЕСТО ПРОВЕДЕНИЯ: Название в Lora */
         .venue-title {
-            font-size: clamp(1.3em, 6.5vw, 2em); 
-            margin-bottom: 8px;
+            font-size: clamp(1.4em, 7vw, 2.2em); 
+            margin-bottom: 10px;
         }
         .venue-address {
             font-family: 'Cormorant Garamond', serif; 
             font-style: italic;
-            font-size: clamp(1.1em, 5vw, 1.3em);
+            font-size: clamp(1.2em, 5.5vw, 1.5em);
             color: #333;
         }
 
         .btn {
-            display: inline-block; margin-top: 40px;
-            padding: 18px 40px; background: var(--main);
-            color: #fff !important; border-radius: 50px; 
-            text-transform: uppercase; font-size: 0.75em; 
+            display: inline-block; margin-top: 45px;
+            padding: 20px 50px; background: var(--main);
+            color: #fff !important; border-radius: 60px; 
+            text-transform: uppercase; font-size: 0.8em; 
             letter-spacing: 3px; font-family: sans-serif; font-style: normal;
-            cursor: pointer;
         }
 
+        /* ПК ВЕРСИЯ: РАСШИРЕННАЯ ПРАВАЯ ЧАСТЬ */
         @media (min-width: 1025px) {
-            .video-fixed { width: 45%; }
-            .content-wrapper { width: 55%; margin-left: 45%; background: #fdfdfb; }
+            .video-fixed { width: 40%; }
+            .content-wrapper { 
+                width: 60%; /* Расширено */
+                margin-left: 40%; 
+                background: #fdfdfb; 
+            }
+            .hero-photo { height: 100vh; padding-bottom: 10vh; }
             .gap { display: none; }
-            .glass-card { background: #fff; backdrop-filter: none; box-shadow: none; border: none; }
+            .glass-card { 
+                background: transparent; 
+                backdrop-filter: none; 
+                box-shadow: none; 
+                max-width: 700px; /* Карточка на ПК стала шире */
+                padding: 100px 40px;
+            }
+            .date-box { margin: 60px 0; border-radius: 10px; }
         }
     </style>
 </head>
@@ -173,9 +185,9 @@
 
         <section class="info-section">
             <div class="glass-card">
-                <p style="text-transform: uppercase; letter-spacing: 4px; font-size: 0.7em; margin-bottom: 20px; font-style: normal;">Save the Date</p>
+                <p style="text-transform: uppercase; letter-spacing: 5px; font-size: 0.8em; margin-bottom: 30px; font-style: normal;">Save the Date</p>
                 
-                <h2>Дорогие и любимые!</h2>
+                <h2>Любимые и родные!</h2>
                 
                 <p>
                     Один из дней лета станет самым важным в нашей жизни. 
@@ -187,12 +199,12 @@
                     <p class="date-sub">Воскресенье • 16:30</p>
                 </div>
 
-                <div style="margin-top: 30px;">
+                <div style="margin-top: 40px;">
                     <p class="venue-title">Ресторан «Престиж»</p>
                     <p class="venue-address">г. Слободзея, ул. Фрунзе, 12</p>
                 </div>
 
-                <a href="https://maps.google.com/?q=Ресторан+Престиж+Слободзея" target="_blank" class="btn">Место проведения</a>
+                <a href="https://maps.google.com/?q=Слободзея+Фрунзе+12" target="_blank" class="btn">Место проведения</a>
             </div>
         </section>
     </div>
