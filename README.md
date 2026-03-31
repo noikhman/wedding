@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@200;300&family=Cinzel&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@400;600&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
         :root { --main: #3b352d; }
@@ -16,11 +16,10 @@
         body, html { 
             width: 100%; height: 100%; 
             background-color: #000; 
-            font-family: 'Cormorant Garamond', serif; 
+            font-family: 'Cinzel', serif; 
             overflow-x: hidden;
         }
 
-        /* Начальный экран (активация звука) */
         #loader-curtain {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-color: #000; z-index: 10000;
@@ -34,7 +33,6 @@
             border: 1px solid rgba(255,255,255,0.2); padding: 12px 35px;
         }
 
-        /* Видео фон */
         .video-fixed {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100vh;
@@ -42,56 +40,65 @@
         }
         video { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Контейнер контента */
         .content-wrapper {
             position: relative;
             z-index: 100;
             width: 100%;
         }
 
-        /* Фото-шторка (Первый экран) */
         .hero-photo {
-            width: 100%; 
-            height: 100vh; /* Высота на весь экран */
-            background-image: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%), 
+            width: 100%; height: 100vh;
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.6) 100%), 
                               url('photo.jpg');
-            background-size: cover; 
-            background-position: center;
-            display: flex; 
-            align-items: flex-end; 
-            justify-content: center;
+            background-size: cover; background-position: center;
+            display: flex; align-items: flex-end; justify-content: center;
             padding-bottom: 12vh;
         }
 
         .hero-photo h1 { 
-            color: #fff; font-size: clamp(2em, 8vw, 4em); 
-            font-weight: 300; letter-spacing: 2px; text-align: center;
-            font-style: italic; text-decoration: none;
-            white-space: nowrap;
-            text-shadow: 0 2px 15px rgba(0,0,0,0.5);
+            color: #fff; font-size: clamp(1.8em, 7vw, 3.5em); 
+            font-weight: 400; letter-spacing: 3px; text-align: center;
+            text-decoration: none; border: none; /* Убрано всё лишнее */
+            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
         }
 
-        /* Просвет для видео при скролле */
-        .gap { height: 85vh; background: transparent; }
+        .gap { height: 90vh; background: transparent; }
 
-        /* Полупрозрачная карточка */
         .info-section {
             padding: 40px 15px 120px;
             display: flex; justify-content: center;
         }
 
         .glass-card {
-            background: rgba(255, 255, 253, 0.45);
-            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            background: rgba(255, 255, 253, 0.85); /* Сделал плотнее, чтобы текст читался лучше */
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
             padding: 60px 25px; border-radius: 40px;
             text-align: center; width: 100%; max-width: 450px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.25);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
         }
 
         .date-box {
             background: var(--main); color: #fff;
             margin: 40px -25px; padding: 30px 10px;
+        }
+
+        /* Стиль для адреса, чтобы не сливался */
+        .location-box {
+            margin-top: 30px;
+            padding: 15px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 15px;
+        }
+
+        .location-box p:first-child {
+            font-size: 1.5em; font-weight: 700; color: #000;
+            margin-bottom: 5px;
+        }
+
+        .location-box p:last-child {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9em; color: #222; font-weight: 600; /* Жирнее и темнее */
+            letter-spacing: 1px;
         }
 
         .btn {
@@ -100,15 +107,15 @@
             color: #fff; text-decoration: none;
             border-radius: 50px; text-transform: uppercase;
             font-size: 0.75em; letter-spacing: 3px; font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
         }
 
-        /* Адаптация под ПК */
         @media (min-width: 1025px) {
             .video-fixed { width: 45%; }
             .content-wrapper { width: 55%; margin-left: 45%; background: #fdfdfb; }
             .hero-photo { height: 100vh; }
             .gap { display: none; }
-            .glass-card { background: #fff; backdrop-filter: none; box-shadow: none; border: none; }
+            .glass-card { background: #fff; backdrop-filter: none; box-shadow: none; }
         }
     </style>
 </head>
@@ -128,31 +135,31 @@
 
     <div class="content-wrapper">
         <section class="hero-photo">
-            <h1>Данил & Ирина</h1>
+            <h1>ДАНИЛ & ИРИНА</h1>
         </section>
 
         <div class="gap"></div>
 
         <section class="info-section">
             <div class="glass-card">
-                <p style="text-transform: uppercase; letter-spacing: 4px; font-size: 0.7em; margin-bottom: 20px; font-family: 'Montserrat';">Save the Date</p>
-                <h2 style="font-size: 2.2em; font-weight: 300; font-style: italic; margin-bottom: 25px;">Дорогие и любимые!</h2>
-                <p style="font-size: 1.4em; line-height: 1.6; color: #1a1a1a; font-weight: 300; font-style: italic;">
-                    Один из дней лета станет самым важным в нашей жизни. 
+                <p style="text-transform: uppercase; letter-spacing: 5px; font-size: 0.75em; margin-bottom: 25px; font-family: 'Montserrat'; font-weight: 600; color: var(--main);">Save the Date</p>
+                <h2 style="font-size: 2em; margin-bottom: 25px; font-weight: 400;">ДОРОГИЕ И ЛЮБИМЫЕ!</h2>
+                <p style="font-size: 1.2em; line-height: 1.6; color: #1a1a1a; font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400;">
+                    Один из дней лета станет самым важным в нашей жизни. <br>
                     Мы хотим провести его вместе с вами.
                 </p>
                 
                 <div class="date-box">
-                    <p style="font-family: 'Cinzel', serif; font-size: 1.8em; letter-spacing: 4px;">26.07.2026</p>
-                    <p style="font-family: 'Montserrat'; font-size: 0.7em; text-transform: uppercase; margin-top: 10px; letter-spacing: 3px;">Воскресенье • 16:30</p>
+                    <p style="font-size: 1.8em; letter-spacing: 4px; font-weight: 400;">26.07.2026</p>
+                    <p style="font-family: 'Montserrat'; font-size: 0.75em; text-transform: uppercase; margin-top: 10px; letter-spacing: 3px; font-weight: 400;">Воскресенье • 16:30</p>
                 </div>
 
-                <div style="margin-top: 30px;">
-                    <p style="font-size: 1.8em; font-weight: 400; color: #000;">Ресторан «Престиж»</p>
-                    <p style="font-family: 'Montserrat'; font-size: 0.85em; margin-top: 5px; color: #555;">г. Слободзея, ул. Фрунзе, 12</p>
+                <div class="location-box">
+                    <p>РЕСТОРАН «ПРЕСТИЖ»</p>
+                    <p>г. Слободзея, ул. Фрунзе, 12</p>
                 </div>
 
-                <a href="https://maps.google.com" target="_blank" class="btn">Место проведения</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Ресторан+Престиж+Слободзея" target="_blank" class="btn">Место проведения</a>
             </div>
         </section>
     </div>
@@ -173,8 +180,8 @@
                 audio.play();
             }
         }
+        // Поддержка клика в любом месте для запуска
         window.addEventListener('click', startAll, {once: true});
-        window.addEventListener('touchstart', startAll, {once: true});
     </script>
 </body>
 </html>
