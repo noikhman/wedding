@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Cormorant+Garamond:ital,wght@1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&family=Cormorant+Garamond:ital,wght@1,400&display=swap" rel="stylesheet">
 
     <style>
         :root { --main: #3b352d; }
@@ -47,18 +47,24 @@
             width: 100%;
         }
 
-        /* Фото на весь экран без полосок */
+        /* Исправлено: фото теперь прижато ко всем краям */
         .hero-photo {
-            width: 100vw; height: 100vh;
+            width: 100vw; 
+            height: 100vh;
+            left: 0;
             background-image: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.7) 100%), 
                               url('photo.jpg');
-            background-size: cover; background-position: center;
-            display: flex; align-items: flex-end; justify-content: center;
+            background-size: cover; 
+            background-position: center;
+            display: flex; 
+            align-items: flex-end; 
+            justify-content: center;
             padding-bottom: 15vh;
         }
 
+        /* Имена - Lora */
         .hero-photo h1 { 
-            color: #fff; font-size: clamp(2em, 10vw, 4em); 
+            color: #fff; font-size: clamp(2em, 10vw, 3.5em); 
             font-weight: 400; text-align: center;
             text-shadow: 0 4px 20px rgba(0,0,0,0.9);
             font-family: 'Lora', serif;
@@ -79,6 +85,7 @@
             padding: 60px 20px; border-radius: 40px;
             text-align: center; width: 100%; max-width: 450px;
             box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            border: none;
         }
 
         .date-box {
@@ -95,11 +102,11 @@
             font-size: 1.1em; text-transform: uppercase; margin-top: 10px; letter-spacing: 2px;
         }
 
-        /* Приветствие Lora в одну строку */
+        /* Приветствие - Lora (уменьшено) */
         .greeting-title {
             font-family: 'Lora', serif;
             font-style: normal;
-            font-size: 1.05em; 
+            font-size: 0.95em; 
             margin-bottom: 25px; 
             font-weight: 400; 
             letter-spacing: 1px; 
@@ -107,6 +114,7 @@
             white-space: nowrap; 
             color: #000;
             border: none;
+            text-decoration: none;
         }
 
         .main-text {
@@ -116,6 +124,7 @@
 
         .location-box {
             margin-top: 30px;
+            border: none;
         }
 
         .location-box p:first-child {
@@ -133,14 +142,15 @@
             padding: 16px 40px; background: var(--main);
             color: #fff; text-decoration: none;
             border-radius: 50px; text-transform: uppercase;
-            font-size: 0.8em; letter-spacing: 3px;
-            font-family: 'Lora', serif;
-            font-style: normal;
+            font-size: 0.85em; letter-spacing: 2px;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
         }
 
         @media (min-width: 1025px) {
             .video-fixed { width: 45%; }
             .content-wrapper { width: 55%; margin-left: 45%; background: #fdfdfb; }
+            .hero-photo { width: 100%; }
             .gap { display: none; }
             .glass-card { background: #fff; backdrop-filter: none; box-shadow: none; }
             .date-box { margin: 40px 0; border-radius: 10px; }
@@ -170,7 +180,7 @@
 
         <section class="info-section">
             <div class="glass-card">
-                <p style="text-transform: uppercase; letter-spacing: 3px; font-size: 0.8em; margin-bottom: 25px; color: #666; font-family: 'Lora', serif; font-style: normal;">Save the Date</p>
+                <p style="text-transform: uppercase; letter-spacing: 3px; font-size: 0.85em; margin-bottom: 25px; color: #666;">Save the Date</p>
                 
                 <h2 class="greeting-title">Дорогие и любимые!</h2>
                 
