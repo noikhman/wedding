@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Данил & Ирина</title>
+    <title>Приглашение: Данил и Ирина</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400&family=Lora:wght@400;500&family=Cinzel&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Cormorant+Garamond:ital,wght@1,400&display=swap" rel="stylesheet">
 
     <style>
         :root { --main: #3b352d; }
@@ -16,25 +16,28 @@
         body, html { 
             width: 100%; height: 100%; 
             background-color: #000; 
-            overflow-x: hidden;
+            /* Основной шрифт для контента - Cormorant Garamond Italic */
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
-            font-weight: 400;
+            overflow-x: hidden;
         }
 
+        /* Начальный экран */
         #loader-curtain {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-color: #000; z-index: 10000;
             display: flex; align-items: center; justify-content: center;
-            transition: opacity 1s ease; cursor: pointer;
+            transition: opacity 0.8s ease; cursor: pointer;
         }
         #loader-curtain::after {
             content: 'ОТКРЫТЬ';
-            color: #fff; font-family: 'Cinzel', serif; font-style: normal;
+            color: #fff; font-family: 'Lora', serif;
+            font-style: normal;
             letter-spacing: 5px; font-size: 0.8em;
-            border: 1px solid rgba(255,255,255,0.2); padding: 12px 35px;
+            border: 1px solid rgba(255,255,255,0.3); padding: 12px 35px;
         }
 
+        /* Видео фон */
         .video-fixed {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100vh;
@@ -48,88 +51,101 @@
             width: 100%;
         }
 
+        /* Фото-шторка */
         .hero-photo {
-            width: 100%; height: 100vh;
-            background-image: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%), 
-                              url('https://raw.githubusercontent.com/noikhman/wedding/main/%E2%84%96999_159.JPG');
+            width: 100vw; height: 100vh;
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.7) 100%), 
+                              url('photo.jpg');
             background-size: cover; background-position: center;
             display: flex; align-items: flex-end; justify-content: center;
             padding-bottom: 15vh;
         }
 
+        /* Шрифт Lora для имен */
         .hero-photo h1 { 
-            font-family: 'Lora', serif; 
+            color: #fff; font-size: clamp(2em, 10vw, 4em); 
+            font-weight: 400; text-align: center;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.9);
+            font-family: 'Lora', serif;
             font-style: normal;
-            color: #fff; 
-            font-size: clamp(1.6em, 7.5vw, 3.5em); 
-            font-weight: 400; letter-spacing: 1px; text-align: center;
-            white-space: nowrap;
-            text-shadow: 0 2px 15px rgba(0,0,0,0.6);
         }
 
-        .gap { height: 85vh; background: transparent; }
+        .gap { height: 90vh; background: transparent; }
 
         .info-section {
-            padding: 40px 15px 120px;
+            padding: 20px 15px 100px;
             display: flex; justify-content: center;
         }
 
         .glass-card {
             background: rgba(255, 255, 253, 0.45);
             backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-            padding: 60px 25px; border-radius: 40px;
+            padding: 60px 20px; border-radius: 40px;
             text-align: center; width: 100%; max-width: 450px;
             box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.25);
-            color: #1a1a1a;
-        }
-
-        /* ПРИВЕТСТВИЕ: Уменьшено для мобильных, чтобы влезло в строку */
-        .glass-card h2 {
-            font-family: 'Lora', serif;
-            font-style: normal;
-            font-size: clamp(1.3em, 6vw, 2em); 
-            font-weight: 400;
-            margin-bottom: 25px;
-            white-space: nowrap;
-        }
-
-        .glass-card p {
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            font-weight: 400;
         }
 
         .date-box {
             background: var(--main); color: #fff;
-            margin: 40px -25px; padding: 30px 10px;
-            font-style: normal;
+            margin: 40px -20px; padding: 30px 10px;
         }
 
-        /* НАЗВАНИЕ РЕСТОРАНА: Уменьшено для мобильных */
-        .venue-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            font-weight: 400;
-            font-size: clamp(1.4em, 6.5vw, 2.2em); 
+        .date-box p:first-child {
+            font-size: 2.2em; letter-spacing: 5px;
+        }
+
+        .date-box p:last-child {
+            font-size: 0.9em; text-transform: uppercase; margin-top: 10px; letter-spacing: 3px;
+        }
+
+        /* Шрифт Lora для приветствия */
+        .greeting-title {
+            font-family: 'Lora', serif;
+            font-style: normal;
+            font-size: 1.1em; 
+            margin-bottom: 25px; 
+            font-weight: 400; 
+            letter-spacing: 1.5px; 
+            text-transform: uppercase;
+            white-space: nowrap; 
+            color: #000;
+        }
+
+        .main-text {
+            font-size: 1.4em; line-height: 1.5; color: #1a1a1a; 
+            margin-bottom: 25px;
+        }
+
+        .location-box {
+            margin-top: 30px;
+        }
+
+        .location-box p:first-child {
+            font-size: 1.5em; color: #000; 
             white-space: nowrap;
+            font-weight: 400;
+        }
+
+        .location-box p:last-child {
+            font-size: 1.1em; color: #444; margin-top: 5px;
         }
 
         .btn {
             display: inline-block; margin-top: 40px;
-            padding: 18px 45px; background: var(--main);
+            padding: 16px 40px; background: var(--main);
             color: #fff; text-decoration: none;
             border-radius: 50px; text-transform: uppercase;
-            font-size: 0.75em; letter-spacing: 3px; 
-            font-family: sans-serif; font-style: normal;
+            font-size: 0.8em; letter-spacing: 3px;
+            font-family: 'Lora', serif;
+            font-style: normal;
         }
 
         @media (min-width: 1025px) {
             .video-fixed { width: 45%; }
             .content-wrapper { width: 55%; margin-left: 45%; background: #fdfdfb; }
-            .hero-photo { height: 100vh; }
             .gap { display: none; }
-            .glass-card { background: #fff; backdrop-filter: none; box-shadow: none; border: none; }
+            .glass-card { background: #fff; backdrop-filter: none; box-shadow: none; }
+            .date-box { margin: 40px 0; border-radius: 10px; }
         }
     </style>
 </head>
@@ -156,26 +172,26 @@
 
         <section class="info-section">
             <div class="glass-card">
-                <p style="text-transform: uppercase; letter-spacing: 4px; font-size: 0.8em; margin-bottom: 20px; font-style: normal;">Save the Date</p>
+                <p style="text-transform: uppercase; letter-spacing: 4px; font-size: 0.8em; margin-bottom: 25px; color: #666; font-family: 'Lora', serif; font-style: normal;">Save the Date</p>
                 
-                <h2>Дорогие и любимые!</h2>
+                <h2 class="greeting-title">Дорогие и любимые!</h2>
                 
-                <p style="font-size: 1.5em; line-height: 1.4;">
-                    Один из дней лета станет самым важным в нашей жизни. 
+                <p class="main-text">
+                    Один из дней лета станет самым важным в нашей жизни. <br>
                     Мы хотим провести его вместе с вами.
                 </p>
                 
                 <div class="date-box">
-                    <p style="font-family: 'Cinzel', serif; font-size: 1.8em; letter-spacing: 4px;">26.07.2026</p>
-                    <p style="font-size: 0.8em; text-transform: uppercase; margin-top: 10px; letter-spacing: 3px; font-style: normal;">Воскресенье • 16:30</p>
+                    <p>26.07.2026</p>
+                    <p>Воскресенье • 16:30</p>
                 </div>
 
-                <div style="margin-top: 30px;">
-                    <p class="venue-name">Ресторан «Престиж»</p>
-                    <p style="font-size: 1.1em; margin-top: 5px;">г. Слободзея, ул. Фрунзе, 12</p>
+                <div class="location-box">
+                    <p>РЕСТОРАН «ПРЕСТИЖ»</p>
+                    <p>г. Слободзея, ул. Фрунзе, 12</p>
                 </div>
 
-                <a href="https://maps.google.com/?q=46.7303,29.7042" target="_blank" class="btn">Место проведения</a>
+                <a href="https://maps.google.com" target="_blank" class="btn">Место проведения</a>
             </div>
         </section>
     </div>
@@ -188,11 +204,11 @@
         function startAll() {
             if (curtain) {
                 curtain.style.opacity = '0';
-                setTimeout(() => { curtain.style.display = 'none'; }, 1000);
+                setTimeout(() => { curtain.style.display = 'none'; }, 800);
             }
             if (video) video.play();
             if (audio) {
-                audio.volume = 0.4;
+                audio.volume = 0.5;
                 audio.play();
             }
         }
