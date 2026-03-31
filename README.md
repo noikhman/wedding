@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@400;600&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
         :root { --main: #3b352d; }
@@ -16,7 +16,7 @@
         body, html { 
             width: 100%; height: 100%; 
             background-color: #000; 
-            font-family: 'Cinzel', serif; /* Основной шрифт как на дате */
+            font-family: 'Cinzel', serif; /* Единый шрифт для всего документа */
             overflow-x: hidden;
         }
 
@@ -48,7 +48,7 @@
             width: 100%;
         }
 
-        /* Фото-шторка на весь экран */
+        /* Фото-шторка */
         .hero-photo {
             width: 100%; height: 100vh;
             background-image: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.7) 100%), 
@@ -61,13 +61,10 @@
         .hero-photo h1 { 
             color: #fff; font-size: clamp(1.8em, 8vw, 3.5em); 
             font-weight: 400; letter-spacing: 4px; text-align: center;
-            text-decoration: none !important; /* Убираем любые подчеркивания */
-            border: none !important;
             text-shadow: 0 4px 20px rgba(0,0,0,0.9);
             font-family: 'Cinzel', serif;
         }
 
-        /* Просвет для прокрутки видео */
         .gap { height: 90vh; background: transparent; }
 
         .info-section {
@@ -75,37 +72,45 @@
             display: flex; justify-content: center;
         }
 
+        /* Прозрачная карточка */
         .glass-card {
-            background: rgba(255, 255, 253, 0.92); /* Более плотный фон для читаемости */
-            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            padding: 50px 20px; border-radius: 30px;
+            background: rgba(255, 255, 253, 0.45); /* Возвращена прозрачность */
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            padding: 60px 25px; border-radius: 40px;
             text-align: center; width: 100%; max-width: 450px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .date-box {
             background: var(--main); color: #fff;
-            margin: 35px -20px; padding: 25px 10px;
+            margin: 40px -25px; padding: 30px 10px;
         }
 
-        /* Блок адреса */
+        /* Текстовые блоки */
+        .main-text {
+            font-size: 1.2em; 
+            line-height: 1.6; 
+            color: #000; 
+            font-family: 'Cinzel', serif; /* Тот самый шрифт */
+            margin-bottom: 25px;
+            text-align: center; /* Центровка */
+        }
+
         .location-box {
             margin-top: 30px;
-            padding: 10px;
+            text-align: center;
         }
 
         .location-box p:first-child {
-            font-family: 'Cinzel', serif;
             font-size: 1.4em; font-weight: 700; color: #000;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             letter-spacing: 1px;
         }
 
         .location-box p:last-child {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1em; color: #000; font-weight: 600; /* Максимальная видимость */
+            font-size: 0.95em; color: #000; font-weight: 600;
             letter-spacing: 0.5px;
-            opacity: 1;
         }
 
         .btn {
@@ -113,16 +118,15 @@
             padding: 18px 40px; background: var(--main);
             color: #fff; text-decoration: none;
             border-radius: 50px; text-transform: uppercase;
-            font-size: 0.7em; letter-spacing: 2px; font-family: 'Montserrat', sans-serif;
+            font-size: 0.75em; letter-spacing: 2px;
             font-weight: 600;
         }
 
         @media (min-width: 1025px) {
             .video-fixed { width: 45%; }
             .content-wrapper { width: 55%; margin-left: 45%; background: #fdfdfb; }
-            .hero-photo { height: 100vh; }
             .gap { display: none; }
-            .glass-card { background: #fff; backdrop-filter: none; box-shadow: none; }
+            .glass-card { background: #fff; backdrop-filter: none; box-shadow: none; border: none; }
         }
     </style>
 </head>
@@ -149,16 +153,18 @@
 
         <section class="info-section">
             <div class="glass-card">
-                <p style="text-transform: uppercase; letter-spacing: 4px; font-size: 0.7em; margin-bottom: 20px; font-family: 'Montserrat'; font-weight: 600; color: #666;">Save the Date</p>
-                <h2 style="font-size: 1.8em; margin-bottom: 25px; font-weight: 400; font-family: 'Cinzel', serif;">ДОРОГИЕ И ЛЮБИМЫЕ!</h2>
-                <p style="font-size: 1.25em; line-height: 1.5; color: #111; font-family: 'Cormorant Garamond', serif; font-style: italic;">
+                <p style="text-transform: uppercase; letter-spacing: 4px; font-size: 0.7em; margin-bottom: 20px; color: #333; font-weight: 600;">Save the Date</p>
+                
+                <h2 style="font-size: 1.8em; margin-bottom: 20px; font-weight: 400; text-align: center;">ДОРОГИЕ И ЛЮБИМЫЕ!</h2>
+                
+                <p class="main-text">
                     Один из дней лета станет самым важным в нашей жизни. <br>
                     Мы хотим провести его вместе с вами.
                 </p>
                 
                 <div class="date-box">
-                    <p style="font-size: 1.8em; letter-spacing: 4px; font-weight: 400; font-family: 'Cinzel', serif;">26.07.2026</p>
-                    <p style="font-family: 'Montserrat'; font-size: 0.75em; text-transform: uppercase; margin-top: 10px; letter-spacing: 3px; font-weight: 400;">Воскресенье • 16:30</p>
+                    <p style="font-size: 1.8em; letter-spacing: 4px; font-weight: 400;">26.07.2026</p>
+                    <p style="font-size: 0.75em; text-transform: uppercase; margin-top: 10px; letter-spacing: 3px;">Воскресенье • 16:30</p>
                 </div>
 
                 <div class="location-box">
@@ -166,7 +172,7 @@
                     <p>г. Слободзея, ул. Фрунзе, 12</p>
                 </div>
 
-                <a href="https://maps.google.com/?q=Слободзея,Фрунзе,12" target="_blank" class="btn">Место проведения</a>
+                <a href="http://googleusercontent.com/maps.google.com/4" target="_blank" class="btn">Место проведения</a>
             </div>
         </section>
     </div>
@@ -177,27 +183,17 @@
         const curtain = document.getElementById('loader-curtain');
 
         function startAll() {
-            // Убираем штору
             if (curtain) {
                 curtain.style.opacity = '0';
                 setTimeout(() => { curtain.style.display = 'none'; }, 800);
             }
-            // Запуск видео
-            if (video) {
-                video.play().catch(e => console.log("Video fail:", e));
-            }
-            // Запуск музыки
+            if (video) video.play();
             if (audio) {
                 audio.volume = 0.5;
-                audio.play().catch(e => {
-                    console.log("Audio block by browser:", e);
-                    // Повторная попытка при любом клике если заблокировано
-                    document.addEventListener('click', () => audio.play(), {once: true});
-                });
+                audio.play();
             }
         }
-
-        // Обработка касания для мобилок
+        window.addEventListener('click', startAll, {once: true});
         window.addEventListener('touchstart', startAll, {once: true});
     </script>
 </body>
