@@ -1,4 +1,4 @@
-**<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -11,12 +11,13 @@
 
     <style>
         :root { --main: #3b352d; }
-        /* Убираем все полоски и подчеркивания */
+        
         * { 
             margin: 0; padding: 0; box-sizing: border-box; 
             -webkit-tap-highlight-color: transparent; 
             text-decoration: none !important; 
             border: none !important;
+            outline: none !important;
         }
         
         body, html { 
@@ -55,15 +56,13 @@
 
         .hero-photo {
             width: 100%; height: 100vh;
-            /* Новое название файла */
             background-image: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%), 
                               url('photo.jpg');
             background-size: cover; background-position: center;
             display: flex; align-items: flex-end; justify-content: center;
-            padding-bottom: 15vh;
+            padding-bottom: 12vh;
         }
 
-        /* ИМЕНА: Lora, в одну строку */
         .hero-photo h1 { 
             font-family: 'Lora', serif; font-style: normal;
             color: #fff; font-size: clamp(1.6em, 7.5vw, 3.5em); 
@@ -82,44 +81,65 @@
         .glass-card {
             background: rgba(255, 255, 253, 0.45);
             backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-            padding: 60px 20px; border-radius: 40px;
+            padding: 55px 15px; border-radius: 40px;
             text-align: center; width: 100%; max-width: 450px;
             box-shadow: 0 25px 50px rgba(0,0,0,0.3);
             border: 1px solid rgba(255,255,255,0.25) !important;
             color: #1a1a1a;
         }
 
-        /* ПРИВЕТСТВИЕ: Lora, в одну строку на мобильных */
+        /* ПРИВЕТСТВИЕ: Lora, Центровка */
         .glass-card h2 {
             font-family: 'Lora', serif; font-style: normal;
-            font-size: clamp(1.1em, 5.8vw, 2em); 
+            font-size: clamp(1.1em, 5.5vw, 1.8em); 
             font-weight: 400; margin-bottom: 25px;
             white-space: nowrap;
+            text-align: center; width: 100%;
         }
 
         .glass-card p {
             font-family: 'Cormorant Garamond', serif; font-style: italic;
-            font-weight: 400; font-size: 1.5em; line-height: 1.3;
+            font-weight: 400; font-size: clamp(1.2em, 5vw, 1.5em); 
+            line-height: 1.3;
         }
 
+        /* ДАТА И ВРЕМЯ: Увеличено */
         .date-box {
             background: var(--main); color: #fff;
-            margin: 40px -20px; padding: 30px 10px;
+            margin: 40px -15px; padding: 35px 5px;
             font-style: normal;
         }
+        .date-main {
+            font-family: 'Cinzel', serif; 
+            font-size: clamp(1.8em, 8vw, 2.3em); /* Увеличен размер */
+            letter-spacing: 4px;
+        }
+        .date-sub {
+            font-size: clamp(0.85em, 4vw, 1em); /* Увеличен размер */
+            text-transform: uppercase; margin-top: 12px; 
+            letter-spacing: 3px; font-family: sans-serif;
+        }
 
-        /* РЕСТОРАН: В одну строку */
+        /* МЕСТО ПРОВЕДЕНИЯ: Cormorant Garamond Italic */
         .venue-name {
-            font-family: 'Cormorant Garamond', serif; font-style: italic;
-            font-weight: 400; font-size: clamp(1.3em, 6.5vw, 2.2em); 
-            white-space: nowrap; margin-bottom: 5px;
+            font-family: 'Cormorant Garamond', serif !important; 
+            font-style: italic !important;
+            font-weight: 400; 
+            font-size: clamp(1.3em, 7vw, 2.2em); 
+            white-space: nowrap; margin-bottom: 8px;
+        }
+        .venue-address {
+            font-family: 'Cormorant Garamond', serif !important; 
+            font-style: italic !important;
+            font-size: clamp(1.1em, 5vw, 1.3em);
+            color: #333;
         }
 
         .btn {
             display: inline-block; margin-top: 40px;
-            padding: 18px 45px; background: var(--main);
+            padding: 18px 40px; background: var(--main);
             color: #fff !important; border-radius: 50px; 
-            text-transform: uppercase; font-size: 0.75em; 
+            text-transform: uppercase; font-size: 0.7em; 
             letter-spacing: 3px; font-family: sans-serif; font-style: normal;
         }
 
@@ -154,9 +174,9 @@
 
         <section class="info-section">
             <div class="glass-card">
-                <p style="text-transform: uppercase; letter-spacing: 4px; font-size: 0.8em; margin-bottom: 20px; font-style: normal;">Save the Date</p>
+                <p style="text-transform: uppercase; letter-spacing: 4px; font-size: 0.7em; margin-bottom: 20px; font-style: normal;">Save the Date</p>
                 
-                <h2>Дорогие и любимые!</h2>
+                <h2>Любимые и родные!</h2>
                 
                 <p>
                     Один из дней лета станет самым важным в нашей жизни. 
@@ -164,16 +184,16 @@
                 </p>
                 
                 <div class="date-box">
-                    <p style="font-family: 'Cinzel', serif; font-size: 1.8em; letter-spacing: 4px;">26.07.2026</p>
-                    <p style="font-size: 0.8em; text-transform: uppercase; margin-top: 10px; letter-spacing: 3px; font-style: normal;">Воскресенье • 16:30</p>
+                    <p class="date-main">26.07.2026</p>
+                    <p class="date-sub">Воскресенье • 16:30</p>
                 </div>
 
                 <div style="margin-top: 30px;">
                     <p class="venue-name">Ресторан «Престиж»</p>
-                    <p style="font-size: 1.1em; font-family: 'Cormorant Garamond';">г. Слободзея, ул. Фрунзе, 12</p>
+                    <p class="venue-address">г. Слободзея, ул. Фрунзе, 12</p>
                 </div>
 
-                <a href="https://maps.app.goo.gl/3" target="_blank" class="btn">Место проведения</a>
+                <a href="https://maps.google.com" target="_blank" class="btn">Место проведения</a>
             </div>
         </section>
     </div>
@@ -196,4 +216,3 @@
     </script>
 </body>
 </html>
-**
